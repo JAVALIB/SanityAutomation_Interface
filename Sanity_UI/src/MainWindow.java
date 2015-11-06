@@ -1,5 +1,5 @@
-import java.awt.BorderLayout;
 import java.awt.EventQueue;
+import java.awt.GridLayout;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.io.File;
@@ -11,13 +11,13 @@ import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
+
+import net.miginfocom.swing.MigLayout;
 
 
 public class MainWindow extends JFrame 
 {
 	private static final long serialVersionUID = 1L;
-	private JPanel contentPane;
 
 	/**
 	 * Launch the application.
@@ -54,14 +54,12 @@ public class MainWindow extends JFrame
 		}
 		catch (IOException e1) 
 		{
-			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
-		//setIconImage(ImageIO.read("res/icon.png"));
 		
 		setTitle("Sanity Automation");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 600, 450);
 		
 		JMenuBar menuBar = new JMenuBar();
 		setJMenuBar(menuBar);
@@ -72,7 +70,6 @@ public class MainWindow extends JFrame
 		JMenuItem mntmExit = new JMenuItem("Exit");
 		mntmExit.addMouseListener(new MouseAdapter() 
 		{
-
 			@Override
 			public void mouseReleased(MouseEvent e) 
 			{
@@ -81,10 +78,39 @@ public class MainWindow extends JFrame
 		});
 		
 		mnFile.add(mntmExit);
-		contentPane = new JPanel();
-		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-		contentPane.setLayout(new BorderLayout(0, 0));
-		setContentPane(contentPane);
+		
+		JMenu mnHelp = new JMenu("Help");
+		menuBar.add(mnHelp);
+		
+		JMenuItem mntmAbout_1 = new JMenuItem("About");
+		mntmAbout_1.addMouseListener(new MouseAdapter() 
+		{
+			@Override
+			public void mouseReleased(MouseEvent arg0) 
+			{
+				AboutWindow aboutwindow = new AboutWindow();
+				aboutwindow.setVisible(true);
+			}
+		});
+		mnHelp.add(mntmAbout_1);
+		getContentPane().setLayout(new GridLayout(0, 1, 0, 0));
+		
+		JPanel panel = new JPanel();
+		getContentPane().add(panel);
+		panel.setLayout(new MigLayout("", "[]", "[][][]"));
+		
+		JMenuItem mntmAbout = new JMenuItem("About");
+		mntmAbout.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseReleased(MouseEvent e) 
+			{
+				AboutWindow aboutwindow = new AboutWindow();
+				
+				aboutwindow.setVisible(true);
+				//TODO Add About window
+			}
+		});
+		
 	}
 
 }
