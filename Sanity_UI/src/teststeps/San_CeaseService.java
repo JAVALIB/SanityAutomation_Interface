@@ -149,7 +149,7 @@ public class San_CeaseService
 		xpath = "//td[contains(.,'Account Number')]/./following::span[@class='iceOutTxt'][4]";
 		ServiceOrderNumber = tsa.getDatafromPage(xpath);
 		
-		Operations.writetoUIconsole();
+		Operations.writetoUIconsole("");
 		Operations.writetoUIconsole("AccountNumber : " + AccountNumber);
 		Operations.writetoUIconsole("ServiceNumber : " + ServiceNumber);
 		Operations.writetoUIconsole("ServiceOrder  : " + ServiceOrderNumber);

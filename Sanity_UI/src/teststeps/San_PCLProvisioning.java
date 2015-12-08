@@ -421,7 +421,7 @@ public class San_PCLProvisioning
 		TestData.provSONumber = tsa.getDatafromPage(xpath);
 		
 		
-		Operations.writetoUIconsole();
+		Operations.writetoUIconsole("");
 		Operations.writetoUIconsole("AccountNumber : " + TestData.AccountNumber);
 		Operations.writetoUIconsole("ServiceNumber : " + TestData.ServiceNumber);
 		Operations.writetoUIconsole("ServiceOrder  : " + TestData.provSONumber);
