@@ -1,4 +1,4 @@
-package testsuite;
+package application_ui;
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
 import java.io.File;

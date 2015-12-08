@@ -1,4 +1,4 @@
-package testsuite;
+package application_ui;
 import java.awt.EventQueue;
 import java.awt.GridLayout;
 import java.awt.event.MouseAdapter;
