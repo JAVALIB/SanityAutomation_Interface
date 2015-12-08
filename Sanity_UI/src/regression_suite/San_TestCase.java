@@ -1,5 +1,6 @@
 package regression_suite;
 
+import application_ui.MainWindow;
 import testcases.Exec_San_ASN;
 import testcases.Exec_San_CUG;
 import testcases.Exec_San_CeaseService;
@@ -22,6 +23,10 @@ public class San_TestCase
 		GenerateData.customerSurname();
 		TestConfiguration.scenarioName = "San_PCLProvisioning";
 		TestConfiguration.testStatus = Exec_San_PCLProvisioning.execute();
+		
+		MainWindow.San_PCLProvisioning_status.setText(TestReport.getPassedFailed(TestConfiguration.testStatus));
+		Operations.setTestStatusColor(MainWindow.San_PCLProvisioning_status);
+		
 		TestReport.createScreenshotDocument();
 	}
 	
@@ -30,6 +35,10 @@ public class San_TestCase
 		TestConfiguration.resetConfiguration();
 		TestConfiguration.scenarioName = "San_ASN";
 		TestConfiguration.testStatus = Exec_San_ASN.execute();
+		
+		MainWindow.San_ASN_status.setText(TestReport.getPassedFailed(TestConfiguration.testStatus));
+		Operations.setTestStatusColor(MainWindow.San_ASN_status);
+
 		TestReport.createScreenshotDocument();		
 	}
 
@@ -39,6 +48,10 @@ public class San_TestCase
 		TestConfiguration.scenarioName = "San_CUG";
 		GenerateData.CUGid();
 		TestConfiguration.testStatus = Exec_San_CUG.execute();
+		
+		MainWindow.San_CUG_status.setText(TestReport.getPassedFailed(TestConfiguration.testStatus));
+		Operations.setTestStatusColor(MainWindow.San_CUG_status);
+
 		TestReport.createScreenshotDocument();		
 	}
 
@@ -47,6 +60,10 @@ public class San_TestCase
 		TestConfiguration.resetConfiguration();
 		TestConfiguration.scenarioName = "San_FaultManagement";
 		TestConfiguration.testStatus = Exec_San_FaultManagement.execute();
+		
+		MainWindow.San_FaultManagement_status.setText(TestReport.getPassedFailed(TestConfiguration.testStatus));
+		Operations.setTestStatusColor(MainWindow.San_FaultManagement_status);
+
 		TestReport.createScreenshotDocument();		
 	}
 
@@ -55,6 +72,10 @@ public class San_TestCase
 		TestConfiguration.resetConfiguration();
 		TestConfiguration.scenarioName = "San_CeaseService";
 		TestConfiguration.testStatus = Exec_San_CeaseService.execute();
+		
+		MainWindow.San_CeaseService_status.setText(TestReport.getPassedFailed(TestConfiguration.testStatus));
+		Operations.setTestStatusColor(MainWindow.San_CeaseService_status);
+
 		TestReport.createScreenshotDocument();		
 	}
 	
@@ -64,6 +85,10 @@ public class San_TestCase
 		GenerateData.depReasonCode();
 		TestConfiguration.scenarioName = "San_MaintainDepositReason";
 		TestConfiguration.testStatus = Exec_San_MaintainDepositReason.execute();
+		
+		MainWindow.San_MaintainDepositReason_status.setText(TestReport.getPassedFailed(TestConfiguration.testStatus));
+		Operations.setTestStatusColor(MainWindow.San_MaintainDepositReason_status);
+
 		TestReport.createScreenshotDocument();
 	}
 	
@@ -72,6 +97,10 @@ public class San_TestCase
 		TestConfiguration.resetConfiguration();
 		TestConfiguration.scenarioName = "San_SinglePayment";
 		TestConfiguration.testStatus = Exec_San_SinglePayment.execute();
+		
+		MainWindow.San_SinglePayment_status.setText(TestReport.getPassedFailed(TestConfiguration.testStatus));
+		Operations.setTestStatusColor(MainWindow.San_SinglePayment_status);
+
 		TestReport.createScreenshotDocument();
 	}
 	
@@ -80,6 +109,10 @@ public class San_TestCase
 		TestConfiguration.resetConfiguration();
 		TestConfiguration.scenarioName = "San_QueryManagement";
 		TestConfiguration.testStatus = Exec_San_QueryManagement.execute();
+		
+		MainWindow.San_QueryManagement_status.setText(TestReport.getPassedFailed(TestConfiguration.testStatus));
+		Operations.setTestStatusColor(MainWindow.San_QueryManagement_status);
+
 		TestReport.createScreenshotDocument();
 	}
 	
@@ -88,6 +121,10 @@ public class San_TestCase
 		TestConfiguration.resetConfiguration();
 		TestConfiguration.scenarioName = "San_GenerateVerifyReport";
 		TestConfiguration.testStatus = Exec_San_GenerateVerifyReport.execute();
+		
+		MainWindow.San_GenerateVerifyReport_status.setText(TestReport.getPassedFailed(TestConfiguration.testStatus));
+		Operations.setTestStatusColor(MainWindow.San_GenerateVerifyReport_status);
+
 		TestReport.createScreenshotDocument();
 	}
 

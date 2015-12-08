@@ -42,6 +42,16 @@ public class MainWindow extends JFrame
 	public static JCheckBox San_MaintainDepositReason;
 	public static JCheckBox San_GenerateVerifyReport;
 	
+	public static JLabel San_PCLProvisioning_status;
+	public static JLabel San_ASN_status;
+	public static JLabel San_CUG_status;
+	public static JLabel San_FaultManagement_status;
+	public static JLabel San_CeaseService_status;
+	public static JLabel San_QueryManagement_status;
+	public static JLabel San_SinglePayment_status;
+	public static JLabel San_MaintainDepositReason_status;
+	public static JLabel San_GenerateVerifyReport_status;
+	
 	public static JCheckBox chckbxComverse;
 	public static JCheckBox chckbxSelectAll;
 	
@@ -49,7 +59,7 @@ public class MainWindow extends JFrame
 	public static JButton btnClearSelection;
 	
 	public static JTextArea consoleArea = null;
-
+	
 	/**
 	 * Launch the application.
 	 */
@@ -216,7 +226,7 @@ public class MainWindow extends JFrame
 		JLabel lblPclProvisioning = new JLabel("PCL Provisioning");
 		panel.add(lblPclProvisioning, "cell 1 2,alignx left");
 		
-		JLabel San_PCLProvisioning_status = new JLabel("");
+		San_PCLProvisioning_status = new JLabel("");
 		panel.add(San_PCLProvisioning_status, "cell 3 2");
 		
 		San_ASN = new JCheckBox("");
@@ -225,7 +235,7 @@ public class MainWindow extends JFrame
 		JLabel lblAlterServiceNumber = new JLabel("Alter Service Number");
 		panel.add(lblAlterServiceNumber, "cell 1 3,alignx left");
 		
-		JLabel San_ASN_status = new JLabel("");
+		San_ASN_status = new JLabel("");
 		panel.add(San_ASN_status, "cell 3 3");
 		
 		San_CUG = new JCheckBox("");
@@ -234,7 +244,7 @@ public class MainWindow extends JFrame
 		JLabel lblCreatCugAnd = new JLabel("Create CUG and add Service");
 		panel.add(lblCreatCugAnd, "cell 1 4,alignx left");
 		
-		JLabel San_CUG_status = new JLabel("");
+		San_CUG_status = new JLabel("");
 		panel.add(San_CUG_status, "cell 3 4");
 		
 		San_FaultManagement = new JCheckBox("");
@@ -243,7 +253,7 @@ public class MainWindow extends JFrame
 		JLabel lblMaintainFault = new JLabel("Maintain Fault");
 		panel.add(lblMaintainFault, "cell 1 5,alignx left");
 		
-		JLabel San_FaultManagement_status = new JLabel("");
+		San_FaultManagement_status = new JLabel("");
 		panel.add(San_FaultManagement_status, "cell 3 5");
 		
 		San_CeaseService = new JCheckBox("");
@@ -252,7 +262,7 @@ public class MainWindow extends JFrame
 		JLabel lblCeaseService = new JLabel("Cease Service");
 		panel.add(lblCeaseService, "cell 1 6,alignx left");
 		
-		JLabel San_CeaseService_status = new JLabel("");
+		San_CeaseService_status = new JLabel("");
 		panel.add(San_CeaseService_status, "cell 3 6");
 		
 		San_QueryManagement = new JCheckBox("");
@@ -261,7 +271,7 @@ public class MainWindow extends JFrame
 		JLabel lblMaintainQuery = new JLabel("Maintain Query");
 		panel.add(lblMaintainQuery, "cell 1 7,alignx left");
 		
-		JLabel San_QueryManagement_status = new JLabel("");
+		San_QueryManagement_status = new JLabel("");
 		panel.add(San_QueryManagement_status, "cell 3 7");
 		
 		San_SinglePayment = new JCheckBox("");
@@ -270,7 +280,7 @@ public class MainWindow extends JFrame
 		JLabel lblSinglePayment = new JLabel("Single Payment");
 		panel.add(lblSinglePayment, "cell 1 8,alignx left");
 		
-		JLabel San_SinglePayment_status = new JLabel("");
+		San_SinglePayment_status = new JLabel("");
 		panel.add(San_SinglePayment_status, "cell 3 8");
 		
 		San_MaintainDepositReason = new JCheckBox("");
@@ -279,7 +289,7 @@ public class MainWindow extends JFrame
 		JLabel lblCreateDepositReason = new JLabel("Create Deposit Reason");
 		panel.add(lblCreateDepositReason, "cell 1 9,alignx left");
 		
-		JLabel San_MaintainDepositReason_status = new JLabel("");
+		San_MaintainDepositReason_status = new JLabel("");
 		panel.add(San_MaintainDepositReason_status, "cell 3 9");
 		
 		San_GenerateVerifyReport = new JCheckBox("");
@@ -288,7 +298,7 @@ public class MainWindow extends JFrame
 		JLabel lblGenerateReport = new JLabel("Generate Report");
 		panel.add(lblGenerateReport, "cell 1 10,alignx left");
 		
-		JLabel San_GenerateVerifyReport_status = new JLabel("");
+		San_GenerateVerifyReport_status = new JLabel("");
 		panel.add(San_GenerateVerifyReport_status, "cell 3 10");
 		
 		consoleArea = new JTextArea("");

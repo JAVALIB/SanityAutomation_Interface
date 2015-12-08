@@ -1,10 +1,13 @@
 package regression_suite;
 
 import java.awt.AWTException;
+import java.awt.Color;
 import java.awt.Robot;
 import java.io.File;
 import java.io.IOException;
 import java.util.Arrays;
+
+import javax.swing.JLabel;
 
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
@@ -163,6 +166,22 @@ public class Operations
 		else
 		{
 			writetoUIconsole("Initialized Reports Directory..");
+		}
+	}
+	
+	public static void setTestStatusColor(JLabel label)
+	{
+		if (label.getText() == "Passed")
+		{
+			label.setForeground(Color.GREEN);
+		}
+		else if (label.getText() == "Failed")
+		{
+			label.setForeground(Color.RED);
+		}
+		else
+		{
+			label.setForeground(Color.BLACK);
 		}
 	}
 }
