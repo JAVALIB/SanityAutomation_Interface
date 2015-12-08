@@ -43,7 +43,7 @@ public class TestReport
 		}
 		catch (FileNotFoundException e) 
 		{
-			System.out.println("\t"+ wordDoc + ".docx NOT FOUND.");
+			Operations.writetoUIconsole("\t"+ wordDoc + ".docx NOT FOUND.");
 		}
 
 	    for (int i = 0; i < scrnCount; i++)
@@ -89,7 +89,7 @@ public class TestReport
 			e.printStackTrace();
 		}
 		
-		System.out.println("Created Document " + documentName + ".docx");
+		Operations.writetoUIconsole("Created Document " + documentName + ".docx");
 		//TODO add create screenshot document code
 	}
 	

@@ -12,6 +12,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import application_ui.MainWindow;
 import testdata.TestData;
 
 public class Operations 
@@ -60,6 +61,11 @@ public class Operations
 		}
 		
 	}
+	
+	public static void writetoUIconsole(String message)
+	{
+		MainWindow.consoleArea.append("\n"+message);
+	}
 
 	public static void takeScreenshot()
 	{
@@ -74,11 +80,11 @@ public class Operations
 		}
 		catch (IOException e) 
 		{
-			System.out.println("Not able to save screenshot for " + filename + " in " + location);
+			writetoUIconsole("Not able to save screenshot for " + filename + " in " + location);
 			e.printStackTrace();
 		}
 
-		System.out.println(" - Took Screenshot : " + filename);
+		writetoUIconsole(" - Took Screenshot : " + filename);
 	}
 	
 	public static void initReportLocation()
@@ -86,7 +92,7 @@ public class Operations
 		File file = new File(TestData.parentDir);
 		if (!file.exists()) 
 		{
-		    System.out.println("Creating Report Directory: " + TestData.reportLocation);
+		    writetoUIconsole("Creating Report Directory: " + TestData.reportLocation);
 		    boolean result = false;
 
 		    try
@@ -100,7 +106,7 @@ public class Operations
 		    }        
 		    if(result) 
 		    {
-		        System.out.println("Parent Directory created");  
+		        writetoUIconsole("Parent Directory created");  
 		    }
 		}
 		
@@ -108,7 +114,7 @@ public class Operations
 		//Check for parent directory
 		if (!file.exists()) 
 		{
-		    System.out.println("Creating Report Directory: " + TestData.reportLocation);
+		    writetoUIconsole("Creating Report Directory: " + TestData.reportLocation);
 		    boolean result = false;
 
 		    try
@@ -122,22 +128,22 @@ public class Operations
 		    }        
 		    if(result) 
 		    {
-		        System.out.println("Parent Directory created");  
+		        writetoUIconsole("Parent Directory created");  
 		    }
 		}
 		else
 		{
-			System.out.println("Initialized Parent Directory..");
+			writetoUIconsole("Initialized Parent Directory..");
 		}
 	
 		TestData.reportLocation = TestData.reportLocation + TestData.currentBuild + "\\";
 		
-		System.out.println(TestData.reportLocation);
+		writetoUIconsole(TestData.reportLocation);
 		
 		file = new File(TestData.reportLocation);
 		if (!file.exists()) 
 		{
-		    System.out.println("Creating Report Directory: " + TestData.reportLocation);
+		    writetoUIconsole("Creating Report Directory: " + TestData.reportLocation);
 		    boolean result = false;
 
 		    try
@@ -151,12 +157,12 @@ public class Operations
 		    }        
 		    if(result) 
 		    {
-		        System.out.println("Report Directory created");  
+		        writetoUIconsole("Report Directory created");  
 		    }
 		}
 		else
 		{
-			System.out.println("Initialized Reports Directory..");
+			writetoUIconsole("Initialized Reports Directory..");
 		}
 	}
 }

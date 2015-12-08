@@ -44,25 +44,25 @@ public class TestStepActions
 			}
 			catch(StaleElementReferenceException se)
 			{
-				System.out.println("\tStaleElementReferenceException Occured - While clicking on '"+xpath+"' . Retrying");
+				Operations.writetoUIconsole("\tStaleElementReferenceException Occured - While clicking on '"+xpath+"' . Retrying");
 			}
 			catch(ElementNotVisibleException nv)
 			{
-				System.out.println("\tElementNotVisibleException Occured - While clicking on '"+xpath+"' . Retrying");				
+				Operations.writetoUIconsole("\tElementNotVisibleException Occured - While clicking on '"+xpath+"' . Retrying");				
 			}
 			catch(ElementNotFoundException nf)
 			{
-				System.out.println("\tElementNotFoundException Occured - While clicking on '"+xpath+"' . Retrying");
+				Operations.writetoUIconsole("\tElementNotFoundException Occured - While clicking on '"+xpath+"' . Retrying");
 			}
 			catch(NoSuchElementException se)
 			{
-				System.out.println("\nNoSuchElementException Occured - While clicking on '"+xpath+"' . Exiting");
+				Operations.writetoUIconsole("\nNoSuchElementException Occured - While clicking on '"+xpath+"' . Exiting");
 				passed = false;
 				break;
 			}
 			catch(WebDriverException we)
 			{
-				System.out.println("\tWebDriverException Occured- While sending data to '"+xpath+"' . Retrying");
+				Operations.writetoUIconsole("\tWebDriverException Occured- While sending data to '"+xpath+"' . Retrying");
 			}
 		}
 		
@@ -81,19 +81,19 @@ public class TestStepActions
 			}
 			catch(StaleElementReferenceException se)
 			{
-				System.out.println("\tStaleElementReferenceException Occured - While sending data to '"+xpath+"' . Retrying");
+				Operations.writetoUIconsole("\tStaleElementReferenceException Occured - While sending data to '"+xpath+"' . Retrying");
 			}
 			catch(ElementNotVisibleException nv)
 			{
-				System.out.println("\tElementNotVisibleException Occured - While sending data to '"+xpath+"' . Retrying");				
+				Operations.writetoUIconsole("\tElementNotVisibleException Occured - While sending data to '"+xpath+"' . Retrying");				
 			}
 			catch(ElementNotFoundException nf)
 			{
-				System.out.println("\tElementNotFoundException Occured - While sending data to '"+xpath+"' . Exiting");
+				Operations.writetoUIconsole("\tElementNotFoundException Occured - While sending data to '"+xpath+"' . Exiting");
 			}
 			catch(NoSuchElementException se)
 			{
-				System.out.println("\nNoSuchElementException Occured- While sending data to '"+xpath+"' . Exiting");
+				Operations.writetoUIconsole("\nNoSuchElementException Occured- While sending data to '"+xpath+"' . Exiting");
 				passed = false;
 				break;
 			}
@@ -124,19 +124,19 @@ public class TestStepActions
 			}
 			catch(StaleElementReferenceException se)
 			{
-				System.out.println("\tStaleElementReferenceException Occured - While clearing '"+xpath+"' . Retrying");
+				Operations.writetoUIconsole("\tStaleElementReferenceException Occured - While clearing '"+xpath+"' . Retrying");
 			}
 			catch(ElementNotVisibleException nv)
 			{
-				System.out.println("\tElementNotVisibleException Occured - While clearing '"+xpath+"' . Retrying");				
+				Operations.writetoUIconsole("\tElementNotVisibleException Occured - While clearing '"+xpath+"' . Retrying");				
 			}
 			catch(ElementNotFoundException nf)
 			{
-				System.out.println("\tElementNotFoundException Occured - While clearing '"+xpath+"' . Exiting");
+				Operations.writetoUIconsole("\tElementNotFoundException Occured - While clearing '"+xpath+"' . Exiting");
 			}
 			catch(NoSuchElementException se)
 			{
-				System.out.println("\nNoSuchElementException Occured - While clearing '"+xpath+"' . Exiting");
+				Operations.writetoUIconsole("\nNoSuchElementException Occured - While clearing '"+xpath+"' . Exiting");
 				passed = false;
 				break;
 			}
@@ -158,7 +158,7 @@ public class TestStepActions
 			}
 			catch(TimeoutException se)
 			{
-				System.out.println("\tTimeoutException Occured while waiting for '"+xpath+"'. Exiting");
+				Operations.writetoUIconsole("\tTimeoutException Occured while waiting for '"+xpath+"'. Exiting");
 				break;
 			}
 		}
@@ -176,7 +176,7 @@ public class TestStepActions
 			}
 			catch(TimeoutException se)
 			{
-				System.out.println("\tTimeoutException Occured while waiting for '"+xpath+"'. Exiting");
+				Operations.writetoUIconsole("\tTimeoutException Occured while waiting for '"+xpath+"'. Exiting");
 				break;
 
 			}
@@ -195,7 +195,7 @@ public class TestStepActions
 			}
 			catch(TimeoutException se)
 			{
-				System.out.println("\tTimeoutException Occured while waiting for '"+xpath+"'. Exiting");
+				Operations.writetoUIconsole("\tTimeoutException Occured while waiting for '"+xpath+"'. Exiting");
 				break;
 
 			}
@@ -267,19 +267,19 @@ public class TestStepActions
 			}
 			catch(StaleElementReferenceException se)
 			{
-				System.out.println("\tStaleElementReferenceException Occured while selecting '"+value+"' from '"+xpath+"'. Retrying");
+				Operations.writetoUIconsole("\tStaleElementReferenceException Occured while selecting '"+value+"' from '"+xpath+"'. Retrying");
 			}
 			catch(ElementNotVisibleException nv)
 			{
-				System.out.println("\tElementNotVisibleException Occured while selecting '"+value+"' from '"+xpath+"'. Retrying");				
+				Operations.writetoUIconsole("\tElementNotVisibleException Occured while selecting '"+value+"' from '"+xpath+"'. Retrying");				
 			}
 			catch(ElementNotFoundException nf)
 			{
-				System.out.println("\tElementNotFoundException Occured while selecting '"+value+"' from '"+xpath+"'. Exiting");
+				Operations.writetoUIconsole("\tElementNotFoundException Occured while selecting '"+value+"' from '"+xpath+"'. Exiting");
 			}
 			catch(NoSuchElementException se)
 			{
-				System.out.println("\nNoSuchElementException Occured while selecting '"+value+"' from '"+xpath+"'. Exiting");
+				Operations.writetoUIconsole("\nNoSuchElementException Occured while selecting '"+value+"' from '"+xpath+"'. Exiting");
 				passed = false;
 				break;
 			}
@@ -303,19 +303,19 @@ public class TestStepActions
 			}
 			catch(StaleElementReferenceException se)
 			{
-				System.out.println("\tStaleElementReferenceException Occured while selecting index '"+index+"' from '"+xpath+"'. Retrying");
+				Operations.writetoUIconsole("\tStaleElementReferenceException Occured while selecting index '"+index+"' from '"+xpath+"'. Retrying");
 			}
 			catch(ElementNotVisibleException nv)
 			{
-				System.out.println("\tElementNotVisibleException Occured while selecting index '"+index+"' from '"+xpath+"'. Retrying");				
+				Operations.writetoUIconsole("\tElementNotVisibleException Occured while selecting index '"+index+"' from '"+xpath+"'. Retrying");				
 			}
 			catch(ElementNotFoundException nf)
 			{
-				System.out.println("\tElementNotFoundException Occured while selecting index '"+index+"' from '"+xpath+"'. Retrying");
+				Operations.writetoUIconsole("\tElementNotFoundException Occured while selecting index '"+index+"' from '"+xpath+"'. Retrying");
 			}
 			catch(NoSuchElementException se)
 			{
-				System.out.println("\nNoSuchElementException Occured while selecting index '"+index+"' from '"+xpath+"'. Exiting");
+				Operations.writetoUIconsole("\nNoSuchElementException Occured while selecting index '"+index+"' from '"+xpath+"'. Exiting");
 				passed = false;
 				break;
 			}

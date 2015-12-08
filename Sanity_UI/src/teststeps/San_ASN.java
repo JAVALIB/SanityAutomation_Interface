@@ -193,10 +193,10 @@ public class San_ASN
 		xpath = "//*[text()[contains(.,'Service Order List')]]";
 		passed = tsa.waitUntilshort(xpath);
 		
-		System.out.println();
-		System.out.println("AccountNumber : " + AccountNumber);
-		System.out.println("ServiceNumber : " + ServiceNumber);
-		System.out.println("ServiceOrder  : " + ServiceOrderNumber);
+		Operations.writetoUIconsole("");
+		Operations.writetoUIconsole("AccountNumber : " + AccountNumber);
+		Operations.writetoUIconsole("ServiceNumber : " + ServiceNumber);
+		Operations.writetoUIconsole("ServiceOrder  : " + ServiceOrderNumber);
 		
 		try
 		{
@@ -222,7 +222,7 @@ public class San_ASN
 		}
 		catch(IOException io)
 		{
-			System.out.println("IOException occured. Please update datafile(config file) manually");
+			Operations.writetoUIconsole("IOException occured. Please update datafile(config file) manually");
 		}
 		
 		return passed;

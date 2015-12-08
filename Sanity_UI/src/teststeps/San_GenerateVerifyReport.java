@@ -152,7 +152,7 @@ public class San_GenerateVerifyReport
 		}
 		else
 		{
-			System.out.println("CIR394G02 Report is not generated..");
+			Operations.writetoUIconsole("CIR394G02 Report is not generated..");
 			passed = false;
 		}
 		

@@ -149,10 +149,10 @@ public class San_CeaseService
 		xpath = "//td[contains(.,'Account Number')]/./following::span[@class='iceOutTxt'][4]";
 		ServiceOrderNumber = tsa.getDatafromPage(xpath);
 		
-		System.out.println();
-		System.out.println("AccountNumber : " + AccountNumber);
-		System.out.println("ServiceNumber : " + ServiceNumber);
-		System.out.println("ServiceOrder  : " + ServiceOrderNumber);
+		Operations.writetoUIconsole();
+		Operations.writetoUIconsole("AccountNumber : " + AccountNumber);
+		Operations.writetoUIconsole("ServiceNumber : " + ServiceNumber);
+		Operations.writetoUIconsole("ServiceOrder  : " + ServiceOrderNumber);
 		
 		TestData.ceaseSONumber = ServiceOrderNumber;
 		
@@ -199,7 +199,7 @@ public class San_CeaseService
 	{
 		xpath = "//*[text()[contains(.,'Service Order List')]]";
 		passed = tsa.waitUntil(xpath);
-		System.out.println("Passed");
+		Operations.writetoUIconsole("Passed");
 		
 		return passed;
 	}

@@ -49,7 +49,7 @@ public class San_CUG
 			catch (StaleElementReferenceException e) 
 			{
 				Operations.waitFor(100);
-				System.out.println("\tStale element occured. Retrying..");
+				Operations.writetoUIconsole("\tStale element occured. Retrying..");
 			}
 		}
 		return passed;
@@ -236,12 +236,12 @@ public class San_CUG
 			xpath = "//*[text()[contains(.,'" + CUGid + "')]]";
 			passed = tsa.waitUntil(xpath);
 			passed = tsa.clickOn(xpath);
-			System.out.println("CUG Passed");		
+			Operations.writetoUIconsole("CUG Passed");		
 		}
 		
 		catch(Exception e)
 		{
-			System.out.println("Number not added to CUG " + CUGid + " properly");
+			Operations.writetoUIconsole("Number not added to CUG " + CUGid + " properly");
 		}
 		
 		return passed;

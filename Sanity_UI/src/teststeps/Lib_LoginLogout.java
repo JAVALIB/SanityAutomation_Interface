@@ -27,7 +27,7 @@ public class Lib_LoginLogout
 			driver.findElement(By.id("login:login_button")).click();
 //			longWait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//span[contains(@id,'headerForm')])[5]")));
 			longWait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[text()[contains(.,'Logout')]]")));
-			System.out.println("Logged in");
+			Operations.writetoUIconsole("Logged in");
 			
 			TestData.currentBuild = driver.findElement(By.xpath("(//span[contains(@id,'headerForm')])[5]")).getText();
 			TestData.currentBuild = TestData.currentBuild.substring(34, 37);
@@ -35,11 +35,11 @@ public class Lib_LoginLogout
 		}
 		else if (loggedIn)
 		{
-			System.out.println("Already logged in");
+			Operations.writetoUIconsole("Already logged in");
 		}
 		else
 		{
-			System.out.println("Not able to log in");
+			Operations.writetoUIconsole("Not able to log in");
 		}
 	}
 	

@@ -81,7 +81,7 @@ public class San_FaultManagement
 		
 		xpath = "//td[contains(.,'Fault Number')]/./following::span[@class='iceOutTxt'][1]";
 		FaultNumber = tsa.getDatafromPage(xpath);
-		System.out.println(FaultNumber);
+		Operations.writetoUIconsole(FaultNumber);
 		
 		xpath = "//*[text()[contains(.,'Manage Fault')]]";
 		passed = tsa.clickOn(xpath);
@@ -240,12 +240,12 @@ public class San_FaultManagement
 		
 		if (FaultStatus == "Cleared")
 		{
-			System.out.println("Passed");
+			Operations.writetoUIconsole("Passed");
 			passed = true;
 		}
 		else
 		{
-			System.out.println("Failed");
+			Operations.writetoUIconsole("Failed");
 			passed = false;
 		}
 		return passed;

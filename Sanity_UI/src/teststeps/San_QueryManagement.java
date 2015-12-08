@@ -86,12 +86,12 @@ public class San_QueryManagement
 		
 		if (RaisedQueryNumber != "")
 		{
-			System.out.println("Raised Query Number : " + RaisedQueryNumber);
+			Operations.writetoUIconsole("Raised Query Number : " + RaisedQueryNumber);
 			passed = true;
 		}
 		else
 		{
-			System.out.println("Query Number Not available..");
+			Operations.writetoUIconsole("Query Number Not available..");
 			passed = false;
 		}
 		
