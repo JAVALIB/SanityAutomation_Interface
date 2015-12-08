@@ -1,6 +1,7 @@
 package regression_suite;
 
 import testdata.TestData;
+import application_ui.MainWindow;
 
 
 public class SanitySuite
@@ -23,16 +24,24 @@ public class SanitySuite
 		
 		teststeps.Lib_LoginLogout.Lib_Login(autURL);
 		
-//		San_TestCase.executePCLProvisioning();
-//		San_TestCase.executeASN();
-//		San_TestCase.executeCUG();
-//		San_TestCase.executeFaultManagement();
-//		San_TestCase.executeCeaseService();
-		
-//		San_TestCase.executeMaintainDepositReason();
-//		San_TestCase.executeSinglePayment();
-//		San_TestCase.executeQueryManagement();
-//		San_TestCase.executeGenerateVerifyReport();
+		if (MainWindow.chckbxPCLProv.isSelected())
+			San_TestCase.executePCLProvisioning();
+		if (MainWindow.chckbxASN.isSelected())
+			San_TestCase.executeASN();
+		if (MainWindow.chckbxCUG.isSelected())
+			San_TestCase.executeCUG();
+		if (MainWindow.chckbxMaintainFault.isSelected())
+			San_TestCase.executeFaultManagement();
+		if (MainWindow.chckbxCease.isSelected())
+			San_TestCase.executeCeaseService();
+		if (MainWindow.chckbxQuery.isSelected())
+			San_TestCase.executeMaintainDepositReason();
+		if (MainWindow.chckbxSinglePay.isSelected())
+			San_TestCase.executeSinglePayment();
+		if (MainWindow.chckbxDepositReason.isSelected())
+			San_TestCase.executeQueryManagement();
+		if (MainWindow.chckbxReport.isSelected())
+			San_TestCase.executeGenerateVerifyReport();
 		
 		teststeps.Lib_LoginLogout.Lib_LogoutExit();
 		

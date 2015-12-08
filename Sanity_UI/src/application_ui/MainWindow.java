@@ -14,11 +14,17 @@ import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 
 import net.miginfocom.swing.MigLayout;
+
 import javax.swing.JCheckBox;
 import javax.swing.JButton;
 import javax.swing.JLabel;
+
+import regression_suite.SanitySuite;
+
 import java.awt.event.ItemListener;
 import java.awt.event.ItemEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 
 public class MainWindow extends JFrame 
@@ -35,6 +41,7 @@ public class MainWindow extends JFrame
 	public static JCheckBox chckbxDepositReason;
 	public static JCheckBox chckbxReport;
 	public static JCheckBox chckbxComverse;
+	public static JCheckBox chckbxSelectAll;
 	
 	public static JButton btnExecute;
 	public static JButton btnClearSelection;
@@ -119,7 +126,7 @@ public class MainWindow extends JFrame
 		getContentPane().add(panel);
 		panel.setLayout(new MigLayout("", "[][][][][]", "[][][][][][][][][][][][]"));
 		
-		final JCheckBox chckbxSelectAll = new JCheckBox("");
+		chckbxSelectAll = new JCheckBox("");
 		chckbxSelectAll.addItemListener(new ItemListener() {
 			public void itemStateChanged(ItemEvent arg0) 
 			{
@@ -134,7 +141,7 @@ public class MainWindow extends JFrame
 					chckbxSinglePay.setSelected(true);
 					chckbxDepositReason.setSelected(true);
 					chckbxReport.setSelected(true);
-					chckbxComverse.setSelected(true);
+//					chckbxComverse.setSelected(true);
 					
 					btnExecute.setEnabled(true);
 				}
@@ -150,7 +157,7 @@ public class MainWindow extends JFrame
 					chckbxSinglePay.setSelected(false);
 					chckbxDepositReason.setSelected(false);
 					chckbxReport.setSelected(false);
-					chckbxComverse.setSelected(false);
+//					chckbxComverse.setSelected(false);
 					
 					btnExecute.setEnabled(false);
 				}
@@ -162,9 +169,32 @@ public class MainWindow extends JFrame
 		panel.add(lblSelectAll, "cell 1 0,alignx left");
 		
 		btnClearSelection = new JButton("Clear Selection");
+		btnClearSelection.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) 
+			{
+				chckbxPCLProv.setSelected(false);
+				chckbxASN.setSelected(false);;
+				chckbxCUG.setSelected(false);;
+				chckbxMaintainFault.setSelected(false);;
+				chckbxCease.setSelected(false);;
+				chckbxQuery.setSelected(false);;
+				chckbxSinglePay.setSelected(false);;
+				chckbxDepositReason.setSelected(false);;
+				chckbxReport.setSelected(false);;
+//				chckbxComverse.setSelected(false);;
+				
+				chckbxSelectAll.setSelected(false);
+			}
+		});
 		panel.add(btnClearSelection, "cell 3 0");
 		
-		btnExecute = new JButton("Execute All");
+		btnExecute = new JButton("Execute");
+		btnExecute.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) 
+			{
+				SanitySuite.main(null);
+			}
+		});
 		panel.add(btnExecute, "cell 4 0");
 		
 		chckbxPCLProv = new JCheckBox("");
@@ -221,11 +251,11 @@ public class MainWindow extends JFrame
 		JLabel lblGenerateReport = new JLabel("Generate Report");
 		panel.add(lblGenerateReport, "cell 1 10,alignx left");
 		
-		chckbxComverse = new JCheckBox("");
-		panel.add(chckbxComverse, "cell 0 11");
-		
-		JLabel lblComverseSubscriberRetrieve = new JLabel("Comverse Subscriber Retrieve");
-		panel.add(lblComverseSubscriberRetrieve, "cell 1 11,alignx left");
+//		chckbxComverse = new JCheckBox("");
+//		panel.add(chckbxComverse, "cell 0 11");
+//		
+//		JLabel lblComverseSubscriberRetrieve = new JLabel("Comverse Subscriber Retrieve");
+//		panel.add(lblComverseSubscriberRetrieve, "cell 1 11,alignx left");
 		
 		JMenuItem mntmAbout = new JMenuItem("About");
 		mntmAbout.addMouseListener(new MouseAdapter() {
