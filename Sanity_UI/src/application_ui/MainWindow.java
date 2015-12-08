@@ -25,6 +25,7 @@ import java.awt.event.ItemListener;
 import java.awt.event.ItemEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.JTextArea;
 
 
 public class MainWindow extends JFrame 
@@ -86,7 +87,7 @@ public class MainWindow extends JFrame
 		
 		setTitle("Sanity Automation");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 600, 450);
+		setBounds(100, 100, 750, 600);
 		
 		JMenuBar menuBar = new JMenuBar();
 		setJMenuBar(menuBar);
@@ -106,6 +107,12 @@ public class MainWindow extends JFrame
 		
 		mnFile.add(mntmExit);
 		
+		JMenu mnEdit = new JMenu("Edit");
+		menuBar.add(mnEdit);
+		
+		JMenuItem mntmPreference = new JMenuItem("Preference");
+		mnEdit.add(mntmPreference);
+		
 		JMenu mnHelp = new JMenu("Help");
 		menuBar.add(mnHelp);
 		
@@ -124,7 +131,7 @@ public class MainWindow extends JFrame
 		
 		JPanel panel = new JPanel();
 		getContentPane().add(panel);
-		panel.setLayout(new MigLayout("", "[][][][][]", "[][][][][][][][][][][][]"));
+		panel.setLayout(new MigLayout("", "[][][][][][grow]", "[][][][][][][][][][][][][grow]"));
 		
 		chckbxSelectAll = new JCheckBox("");
 		chckbxSelectAll.addItemListener(new ItemListener() {
@@ -250,6 +257,9 @@ public class MainWindow extends JFrame
 		
 		JLabel lblGenerateReport = new JLabel("Generate Report");
 		panel.add(lblGenerateReport, "cell 1 10,alignx left");
+		
+		JTextArea textArea = new JTextArea();
+		panel.add(textArea, "cell 0 12 6 1,grow");
 		
 //		chckbxComverse = new JCheckBox("");
 //		panel.add(chckbxComverse, "cell 0 11");
