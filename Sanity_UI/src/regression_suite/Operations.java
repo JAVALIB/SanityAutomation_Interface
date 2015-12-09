@@ -21,9 +21,9 @@ import testdata.TestData;
 public class Operations 
 {
 	public static WebDriver driver = Operations.initDriver();
-	public static WebDriverWait longWait = new WebDriverWait(driver, 120);
-	public static WebDriverWait shortWait = new WebDriverWait(driver,5);
-	public static WebDriverWait tinyWait = new WebDriverWait(driver,2);
+	public static WebDriverWait longWait;// = new WebDriverWait(driver, 120);
+	public static WebDriverWait shortWait;// = new WebDriverWait(driver,5);
+	public static WebDriverWait tinyWait;// = new WebDriverWait(driver,2);
 	
 	public static WebDriver initDriver()
 	{
@@ -33,7 +33,11 @@ public class Operations
 		WebDriver driver = new ChromeDriver();
 		
 		driver.manage().window().maximize();
-
+		
+		longWait = new WebDriverWait(driver, 120);
+		shortWait = new WebDriverWait(driver,5);
+		tinyWait = new WebDriverWait(driver,2);
+		
 		return driver;
 	}
 	

@@ -8,11 +8,9 @@ import org.openqa.selenium.ElementNotVisibleException;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.TimeoutException;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.gargoylesoftware.htmlunit.ElementNotFoundException;
 
@@ -22,11 +20,11 @@ public class TestStepActions
 	int retry = TestConfiguration.tsExceptionRetryCount;
 	boolean passed = true;
 	
-	static WebDriverWait longWait = Operations.longWait;
-	static WebDriverWait shortWait = Operations.shortWait;
-	static WebDriverWait tinyWait = Operations.tinyWait;
+//	static WebDriverWait longWait = Operations.longWait;
+//	static WebDriverWait shortWait = Operations.shortWait;
+//	static WebDriverWait tinyWait = Operations.tinyWait;
 
-	static WebDriver driver = Operations.driver;
+//	static WebDriver driver = Operations.driver;
 	
 	static String AccountNumber;
 	static String ServiceNumber;
@@ -39,7 +37,7 @@ public class TestStepActions
 			Operations.waitFor(200);
 			try
 			{
-				driver.findElement(By.xpath(xpath)).click();
+				Operations.driver.findElement(By.xpath(xpath)).click();
 				break;
 			}
 			catch(StaleElementReferenceException se)
@@ -76,7 +74,7 @@ public class TestStepActions
 			try
 			{
 				clearInputField(xpath);
-				driver.findElement(By.xpath(xpath)).sendKeys(value);
+				Operations.driver.findElement(By.xpath(xpath)).sendKeys(value);
 				break;
 			}
 			catch(StaleElementReferenceException se)
@@ -108,7 +106,7 @@ public class TestStepActions
 	{
 		String dataFromPage = "";
 		
-		dataFromPage = driver.findElement(By.xpath(xpath)).getText();
+		dataFromPage = Operations.driver.findElement(By.xpath(xpath)).getText();
 		
 		return dataFromPage;
 	}
@@ -119,7 +117,7 @@ public class TestStepActions
 		{
 			try
 			{
-				driver.findElement(By.xpath(xpath)).clear();
+				Operations.driver.findElement(By.xpath(xpath)).clear();
 				break;
 			}
 			catch(StaleElementReferenceException se)
@@ -153,7 +151,7 @@ public class TestStepActions
 		{
 			try
 			{
-				longWait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(xpath)));
+				Operations.longWait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(xpath)));
 				break;
 			}
 			catch(TimeoutException se)
@@ -171,7 +169,7 @@ public class TestStepActions
 		{
 			try
 			{
-				tinyWait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(xpath)));
+				Operations.tinyWait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(xpath)));
 				break;
 			}
 			catch(TimeoutException se)
@@ -190,7 +188,7 @@ public class TestStepActions
 		{
 			try
 			{
-				shortWait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(xpath)));
+				Operations.shortWait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(xpath)));
 				break;
 			}
 			catch(TimeoutException se)
@@ -223,7 +221,7 @@ public class TestStepActions
 
 	public boolean elementExist(String xpath)
 	{
-		return(driver.findElements(By.xpath(xpath)).size() != 0);
+		return(Operations.driver.findElements(By.xpath(xpath)).size() != 0);
 	}
 	
 	public void closeOKpopup()
@@ -231,12 +229,12 @@ public class TestStepActions
 		try 
 		{
 			Operations.waitFor(500);
-			if (driver.findElements(By.xpath("//input[contains (@value,'OK')]")).size() != 0)
+			if (Operations.driver.findElements(By.xpath("//input[contains (@value,'OK')]")).size() != 0)
 			{
 				testcases.Check.closeError();
 			}
 			Operations.waitFor(500);
-			if (driver.findElements(By.xpath("//input[contains (@value,'OK')]")).size() != 0)
+			if (Operations.driver.findElements(By.xpath("//input[contains (@value,'OK')]")).size() != 0)
 			{
 				try
 				{
@@ -261,7 +259,7 @@ public class TestStepActions
 		{
 			try
 			{
-				Select appForm = new Select(driver.findElement(By.xpath(xpath)));
+				Select appForm = new Select(Operations.driver.findElement(By.xpath(xpath)));
 				appForm.selectByValue(value);
 				break;
 			}
@@ -297,7 +295,7 @@ public class TestStepActions
 		{
 			try
 			{
-				Select appForm = new Select(driver.findElement(By.xpath(xpath)));
+				Select appForm = new Select(Operations.driver.findElement(By.xpath(xpath)));
 				appForm.selectByIndex(index);
 				break;
 			}

@@ -27,7 +27,10 @@ public class Lib_LoginLogout
 		catch(UnreachableBrowserException e)
 		{
 			System.out.println("Unreachable Browser. Starting new chromedriver instance");
-			driver = Operations.initDriver();
+			Operations.driver = Operations.initDriver();
+			
+			driver = Operations.driver;
+
 			driver.get(autURL);
 		}
 		
