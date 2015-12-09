@@ -1,5 +1,4 @@
 package application_ui;
-import java.awt.BorderLayout;
 import java.awt.EventQueue;
 import java.io.File;
 import java.io.IOException;
@@ -8,8 +7,9 @@ import javax.imageio.ImageIO;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
+
+import net.miginfocom.swing.MigLayout;
 
 
 public class AboutWindow extends JFrame {
@@ -55,20 +55,20 @@ public class AboutWindow extends JFrame {
 		setBounds(100, 100, 300, 175);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-		contentPane.setLayout(new BorderLayout(0, 0));
 		setContentPane(contentPane);
+		contentPane.setLayout(new MigLayout("", "[][][][][][]", "[][][][][]"));
 		
-		JLabel lblAboutSanityAutomation = new JLabel("About Sanity Automation");
-		lblAboutSanityAutomation.setHorizontalAlignment(SwingConstants.CENTER);
-		contentPane.add(lblAboutSanityAutomation, BorderLayout.NORTH);
+		JLabel lblSanityAutomationSuite = new JLabel("Sanity Automation Suite");
+		contentPane.add(lblSanityAutomationSuite, "cell 3 0,alignx center");
 		
-		JLabel lblNewLabel = new JLabel("Coded by : Nikhil Das");
-		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		contentPane.add(lblNewLabel, BorderLayout.CENTER);
+		JLabel lblVersionwip = new JLabel("Version 0.1.13 (WIP alpha)");
+		contentPane.add(lblVersionwip, "cell 3 1,alignx center");
 		
-		JLabel lblSpecialThanksTo = new JLabel("Special Thanks to Gregor \u010Cre\u0161nar for Icon");
-		lblSpecialThanksTo.setHorizontalAlignment(SwingConstants.CENTER);
-		contentPane.add(lblSpecialThanksTo, BorderLayout.SOUTH);
+		JLabel lblCodedBy = new JLabel("Coded By : Nikhil Das");
+		contentPane.add(lblCodedBy, "cell 3 2,alignx center");
+		
+		JLabel lblNewLabel = new JLabel("Special Thanks to Gregor \u010Cre\u0161nar for Icon");
+		contentPane.add(lblNewLabel, "cell 3 4,alignx center");
 	}
 
 }
