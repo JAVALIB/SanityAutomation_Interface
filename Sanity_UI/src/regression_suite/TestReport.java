@@ -15,37 +15,17 @@ import org.apache.poi.xwpf.usermodel.XWPFRun;
 import testdata.TestData;
 
 public class TestReport 
-{
-	static XWPFDocument doc;
-	static String documentName;
-	static String wordDoc;
-    static FileOutputStream fos = null;
-    static int scrnCount;
-    
-	public static void initialize()
-	{
-		doc = new XWPFDocument();
-		documentName = TestConfiguration.scenarioName;
-		wordDoc = TestData.reportLocation + documentName;
-		scrnCount = TestConfiguration.screenShotCount;
-	}
-	
+{    
 	public static void createScreenshotDocument()
 	{
-		initialize();
+		XWPFDocument doc = new XWPFDocument();
+		String documentName = TestConfiguration.scenarioName;
+		String wordDoc = TestData.reportLocation + documentName;
+		int scrnCount = TestConfiguration.screenShotCount;
 		
 	    XWPFParagraph para = doc.createParagraph();    
 	    XWPFRun run = para.createRun();
 	    
-		try 
-		{
-			fos = new FileOutputStream(wordDoc + ".docx");
-		}
-		catch (FileNotFoundException e) 
-		{
-			Operations.writetoUIconsole("\t"+ wordDoc + ".docx NOT FOUND.");
-		}
-
 	    for (int i = 0; i < scrnCount; i++)
 	    {
 			String imgFile = TestData.reportLocation + documentName + "_" + (i) + ".png";
@@ -78,6 +58,16 @@ public class TestReport
 		    
 	    }
 	    
+	    FileOutputStream fos = null;
+		try 
+		{
+			fos = new FileOutputStream(wordDoc + ".docx");
+		}
+		catch (FileNotFoundException e) 
+		{
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	    try 
 	    {
 			doc.write(fos);
