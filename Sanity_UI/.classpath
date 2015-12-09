@@ -47,5 +47,6 @@
 	<classpathentry kind="lib" path="D:/Applications/selenium-2.24.1/libs/xalan-2.7.1.jar"/>
 	<classpathentry kind="lib" path="D:/Applications/selenium-2.24.1/libs/xercesImpl-2.9.1.jar"/>
 	<classpathentry kind="lib" path="D:/Applications/selenium-2.24.1/libs/xml-apis-1.3.04.jar"/>
+	<classpathentry kind="lib" path="D:/Applications/poi-3.12/ooxml-lib/xmlbeans-2.6.0.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

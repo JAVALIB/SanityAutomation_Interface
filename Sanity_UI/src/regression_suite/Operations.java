@@ -68,6 +68,7 @@ public class Operations
 	public static void writetoUIconsole(String message)
 	{
 		MainWindow.consoleArea.append("\n"+message);
+		MainWindow.consoleArea.revalidate();
 	}
 
 	public static void takeScreenshot()
