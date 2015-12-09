@@ -193,7 +193,10 @@ public class MainWindow extends JFrame
 		btnExecute.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) 
 			{
-				SanitySuite.main(null);
+				SanitySuite suite = new SanitySuite();
+		        Thread t = new Thread(suite);
+		        
+		        t.start();
 			}
 		});
 		

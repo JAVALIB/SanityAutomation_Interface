@@ -7,13 +7,17 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import regression_suite.Operations;
+import regression_suite.TestStepActions;
 import testdata.TestData;
 
 public class Lib_LoginLogout 
 {
 	static WebDriverWait longWait = Operations.longWait;
 	static WebDriver driver = Operations.driver;
-
+	static TestStepActions tsa = new TestStepActions();
+	
+	static String xpath = "";
+	
 	public static void Lib_Login(String autURL)
 	{
 		try
@@ -35,8 +39,9 @@ public class Lib_LoginLogout
 			driver.findElement(By.id("login:userName")).sendKeys("libadmin");
 			driver.findElement(By.id("login:userPassword")).sendKeys("Ic3cr34m!");	
 			driver.findElement(By.id("login:login_button")).click();
-//			longWait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//span[contains(@id,'headerForm')])[5]")));
-			longWait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[text()[contains(.,'Logout')]]")));
+
+			xpath = "//*[text()[contains(.,'Logout')]]";
+			tsa.waitUntil(xpath);
 			Operations.writetoUIconsole("Logged in");
 			
 			TestData.currentBuild = driver.findElement(By.xpath("(//span[contains(@id,'headerForm')])[5]")).getText();
@@ -62,6 +67,7 @@ public class Lib_LoginLogout
 	
 	public static void Lib_LogoutExit()
 	{
+		driver.close();
 		driver.quit();
 	}
 }

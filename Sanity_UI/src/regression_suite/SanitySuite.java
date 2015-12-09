@@ -4,7 +4,7 @@ import testdata.TestData;
 import application_ui.MainWindow;
 
 
-public class SanitySuite
+public class SanitySuite implements Runnable
 {
 	public static String autURL = "";
 
@@ -57,5 +57,11 @@ public class SanitySuite
 		
 		endTime = System.currentTimeMillis();
 		Operations.writetoUIconsole("Time took for total Execution is : " + (endTime - startTime)/1000 + " seconds." );
+	}
+
+	@Override
+	public void run() 
+	{
+		main(null);
 	}
 }

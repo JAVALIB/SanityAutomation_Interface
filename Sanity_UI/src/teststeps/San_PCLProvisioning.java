@@ -20,12 +20,12 @@ public class San_PCLProvisioning
 	boolean passed	= true;
 	
 	String servPack;
-//	public static final String ExchID = "GSMP";
-//	public static final String NumArea = "GSPR";
+	public static final String ExchID = "GSMP";
+	public static final String NumArea = "GSPR";
 	
 	//13BT
-	public static final String ExchID = "MSCA";
-	public static final String NumArea = "SMPO";
+//	public static final String ExchID = "MSCA";
+//	public static final String NumArea = "SMPO";
 
 	public static String createdAccountNumber = "";
 	int i;
