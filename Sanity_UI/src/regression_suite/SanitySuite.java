@@ -17,12 +17,22 @@ public class SanitySuite
 		TestData.loadProperties_Sanity();
 		
 		startTime = System.currentTimeMillis();
-
-		autURL = TestData.URL_14AT;
+		
+		int urlSelected = MainWindow.autSelection.getSelectedIndex();
+		
+		if (urlSelected == 1)
+		{
+			autURL = TestData.URL_14AT;
+		}
+		if (urlSelected == 0)
+		{
+			autURL = TestData.URL_13BT;
+		}
 		
 		TestData.getSanityReportLocation();
 		
 		teststeps.Lib_LoginLogout.Lib_Login(autURL);
+		TestReport.createScreenshotDocument();
 		
 		if (MainWindow.San_PCLProvisioning.isSelected())
 			San_TestCase.executePCLProvisioning();
@@ -35,11 +45,11 @@ public class SanitySuite
 		if (MainWindow.San_CeaseService.isSelected())
 			San_TestCase.executeCeaseService();
 		if (MainWindow.San_QueryManagement.isSelected())
-			San_TestCase.executeMaintainDepositReason();
+			San_TestCase.executeQueryManagement();
 		if (MainWindow.San_SinglePayment.isSelected())
 			San_TestCase.executeSinglePayment();
 		if (MainWindow.San_MaintainDepositReason.isSelected())
-			San_TestCase.executeQueryManagement();
+			San_TestCase.executeMaintainDepositReason();
 		if (MainWindow.San_GenerateVerifyReport.isSelected())
 			San_TestCase.executeGenerateVerifyReport();
 		
