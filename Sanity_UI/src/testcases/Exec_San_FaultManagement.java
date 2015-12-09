@@ -1,6 +1,8 @@
 package testcases;
 
 import regression_suite.Operations;
+import regression_suite.SanitySuite;
+import testdata.TestData;
 import teststeps.San_FaultManagement;
 
 public class Exec_San_FaultManagement 
@@ -73,15 +75,19 @@ static San_FaultManagement ts = new San_FaultManagement();
 			if(!passed)
 				break;
 			
-			passed = ts.testStep_13();
-			Operations.takeScreenshot();
-			if(!passed)
-				break;
-			
-			passed = ts.testStep_14();
-			Operations.takeScreenshot();
-			if(!passed)
-				break;
+			//As signing off is not needed in 13BT
+			if(SanitySuite.autURL == TestData.URL_14AT)
+			{
+				passed = ts.testStep_13();
+				Operations.takeScreenshot();
+				if(!passed)
+					break;
+				
+				passed = ts.testStep_14();
+				Operations.takeScreenshot();
+				if(!passed)
+					break;
+			}
 		}
 		
 		return passed;
