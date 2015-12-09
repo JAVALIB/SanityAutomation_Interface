@@ -55,6 +55,8 @@ public class MainWindow extends JFrame
 	public static JCheckBox chckbxComverse;
 	public static JCheckBox chckbxSelectAll;
 	
+	public static JComboBox<String> autSelection;
+	
 	public static JButton btnExecute;
 	public static JButton btnClearSelection;
 	
@@ -195,9 +197,9 @@ public class MainWindow extends JFrame
 			}
 		});
 		
-		JComboBox<String> comboBox = new JComboBox<String>();
-		comboBox.setModel(new DefaultComboBoxModel<String>(new String[] {"13BT", "14AT"}));
-		panel.add(comboBox, "cell 2 0,growx");
+		autSelection = new JComboBox<String>();
+		autSelection.setModel(new DefaultComboBoxModel<String>(new String[] {"13BT", "14AT"}));
+		panel.add(autSelection, "cell 2 0,growx");
 		panel.add(btnExecute, "cell 3 0");
 		
 		btnClearSelection = new JButton("Clear Selection");
