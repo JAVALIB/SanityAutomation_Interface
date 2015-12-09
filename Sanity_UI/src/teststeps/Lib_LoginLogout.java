@@ -2,6 +2,7 @@ package teststeps;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.remote.UnreachableBrowserException;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -15,7 +16,16 @@ public class Lib_LoginLogout
 
 	public static void Lib_Login(String autURL)
 	{
-		driver.get(autURL);
+		try
+		{
+			driver.get(autURL);
+		}
+		catch(UnreachableBrowserException e)
+		{
+			System.out.println("Unreachable Browser. Starting new chromedriver instance");
+			driver = Operations.initDriver();
+			driver.get(autURL);
+		}
 		
 		boolean needToLogin = driver.findElements(By.id("login:userName")).size() != 0;
 		boolean loggedIn = driver.findElements(By.id("headerForm:headerLogoutLink")).size() != 0;
