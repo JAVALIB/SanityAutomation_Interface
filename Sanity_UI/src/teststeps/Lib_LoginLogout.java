@@ -79,6 +79,7 @@ public class Lib_LoginLogout
 		
 		MainWindow.btnClearClose.setText("Clear");
 		MainWindow.btnExecute.setEnabled(true);
+		MainWindow.autSelection.setEnabled(true);
 	}
 }
 

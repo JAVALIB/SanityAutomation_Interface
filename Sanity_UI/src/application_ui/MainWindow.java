@@ -372,7 +372,8 @@ public class MainWindow extends JFrame
 		panel.add(San_GenerateVerifyReport_status, "cell 3 10");
 		
 		consoleArea = new JTextArea("");
-		consoleArea.setEnabled(false);
+		consoleArea.setForeground(Color.BLUE);
+		consoleArea.setEditable(false);
 //		panel.add(consoleArea, "cell 0 11 6 3,grow");
 
 		JScrollPane scrollPane = new JScrollPane(consoleArea);

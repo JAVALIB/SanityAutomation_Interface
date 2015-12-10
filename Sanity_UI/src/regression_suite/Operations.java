@@ -93,28 +93,16 @@ public class Operations
 	
 	public static void initReportLocation()
 	{
-		File file = new File(TestData.parentDir);
-		if (!file.exists()) 
+		if(SanitySuite.autURL == TestData.URL_14AT)
 		{
-			MainWindow.writetoUIconsole("Creating Report Directory: " + TestData.reportLocation);
-		    boolean result = false;
-
-		    try
-		    {
-		    	file.mkdir();
-		        result = true;
-		    } 
-		    catch(SecurityException se)
-		    {
-		        //handle it
-		    }        
-		    if(result) 
-		    {
-		    	MainWindow.writetoUIconsole("Parent Directory created");  
-		    }
+			TestData.reportLocation = TestData.reportLocation + "14AT\\";
+		}
+		else if (SanitySuite.autURL == TestData.URL_13BT)
+		{
+			TestData.reportLocation = TestData.reportLocation + "13BT\\";
 		}
 		
-		file = new File(TestData.reportLocation);
+		File file = new File(TestData.reportLocation);		
 		//Check for parent directory
 		if (!file.exists()) 
 		{

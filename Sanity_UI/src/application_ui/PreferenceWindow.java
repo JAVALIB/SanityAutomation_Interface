@@ -83,6 +83,7 @@ public class PreferenceWindow extends JFrame {
 		contentPane.add(lblReportLocation, "cell 0 0,alignx trailing");
 		
 		reportLocation = new JTextField();
+		reportLocation.setEditable(false);
 		contentPane.add(reportLocation, "cell 1 0 2 1,growx");
 		reportLocation.setColumns(10);
 		
@@ -130,9 +131,31 @@ public class PreferenceWindow extends JFrame {
 		autPassword.setText(TestData.password);
 
 		prefUpdate = new JButton("Update");
+		prefUpdate.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) 
+			{
+				TestData.props.setProperty("userName", autUsername.getText());
+				TestData.props.setProperty("password", autPassword.getPassword().toString());
+				TestData.props.setProperty("Sanity_parentDir", reportLocation.getText());
+				
+				TestData.saveChangestoConfigFile();
+			}
+		});
 		contentPane.add(prefUpdate, "cell 2 4");
 		
 		prefReset = new JButton("Reset");
+		prefReset.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) 
+			{
+				TestData.initializeConfigFile();
+				TestData.loadProperties_Sanity();
+				TestData.getSanityReportLocation();
+				
+				autUsername.setText(TestData.username);
+				autPassword.setText(TestData.password);
+				reportLocation.setText(TestData.reportLocation);
+			}
+		});
 		contentPane.add(prefReset, "cell 3 4,growx");
 	}
 
