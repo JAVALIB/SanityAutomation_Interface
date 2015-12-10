@@ -66,10 +66,10 @@ public class MainWindow extends JFrame
 	
 	public static JTextArea consoleArea = null;
 	private JLabel label;
-	private JLabel lblPreviousBuild;
 	private JLabel lblReportLocation;
-	private JLabel lblReportlocation;
+	public static JLabel Reportlocation;
 	private JLabel colon_Label_1;
+	public static JLabel current_BuildNumber;
 	
 	/**
 	 * Launch the application.
@@ -263,14 +263,11 @@ public class MainWindow extends JFrame
 		San_PCLProvisioning_status = new JLabel("");
 		panel.add(San_PCLProvisioning_status, "cell 3 2");
 		
-		lblPreviousBuild = new JLabel("Previous Build");
-		panel.add(lblPreviousBuild, "cell 5 2");
-		
-		colon_Label_1 = new JLabel(":");
-		panel.add(colon_Label_1, "cell 6 2");
-		
 		colon_Label_1 = new JLabel(":");
 		panel.add(colon_Label_1, "cell 6 3");
+		
+		current_BuildNumber = new JLabel("");
+		panel.add(current_BuildNumber, "cell 7 3");
 		
 		colon_Label_1 = new JLabel(":");
 		panel.add(colon_Label_1, "cell 6 5");
@@ -311,9 +308,9 @@ public class MainWindow extends JFrame
 		lblReportLocation = new JLabel("Report Location");
 		panel.add(lblReportLocation, "cell 5 5");
 		
-		lblReportlocation = new JLabel("WillShowRepotLocationHere");
-		lblReportlocation.setForeground(Color.BLUE);
-		panel.add(lblReportlocation, "cell 7 5");
+		Reportlocation = new JLabel("");
+		Reportlocation.setForeground(Color.BLUE);
+		panel.add(Reportlocation, "cell 7 5");
 		
 		San_CeaseService = new JCheckBox("");
 		panel.add(San_CeaseService, "cell 0 6");

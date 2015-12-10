@@ -173,6 +173,7 @@ public class Operations
 		else
 		{
 			writetoUIconsole("Initialized Reports Directory..");
+			MainWindow.Reportlocation.setText(TestData.reportLocation);
 		}
 	}
 	

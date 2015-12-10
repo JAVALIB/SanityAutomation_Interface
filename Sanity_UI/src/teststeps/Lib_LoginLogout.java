@@ -50,6 +50,9 @@ public class Lib_LoginLogout
 			
 			TestData.currentBuild = driver.findElement(By.xpath("(//span[contains(@id,'headerForm')])[5]")).getText();
 			TestData.currentBuild = TestData.currentBuild.substring(34, 37);
+			
+			MainWindow.current_BuildNumber.setText(TestData.currentBuild);
+			
 			Operations.initReportLocation();
 		}
 		else if (loggedIn)

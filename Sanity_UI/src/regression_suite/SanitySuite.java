@@ -30,6 +30,7 @@ public class SanitySuite implements Runnable
 		}
 		
 		TestData.getSanityReportLocation();
+		MainWindow.Reportlocation.setText(TestData.reportLocation);
 		
 		teststeps.Lib_LoginLogout.Lib_Login(autURL);
 		
