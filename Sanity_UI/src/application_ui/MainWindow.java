@@ -24,6 +24,7 @@ import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
+import javax.swing.text.DefaultCaret;
 
 import net.miginfocom.swing.MigLayout;
 import regression_suite.Operations;
@@ -372,6 +373,10 @@ public class MainWindow extends JFrame
 		panel.add(San_GenerateVerifyReport_status, "cell 3 10");
 		
 		consoleArea = new JTextArea("");
+		
+		DefaultCaret caret = (DefaultCaret)consoleArea.getCaret();
+		caret.setUpdatePolicy(DefaultCaret.ALWAYS_UPDATE);
+		
 		consoleArea.setForeground(Color.BLUE);
 		consoleArea.setEditable(false);
 //		panel.add(consoleArea, "cell 0 11 6 3,grow");
