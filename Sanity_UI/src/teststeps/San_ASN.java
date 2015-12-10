@@ -9,6 +9,7 @@ import regression_suite.SanitySuite;
 import regression_suite.TestStepActions;
 import testcases.Check;
 import testdata.TestData;
+import application_ui.MainWindow;
 
 public class San_ASN 
 {
@@ -193,10 +194,10 @@ public class San_ASN
 		xpath = "//*[text()[contains(.,'Service Order List')]]";
 		passed = tsa.waitUntilshort(xpath);
 		
-		Operations.writetoUIconsole("");
-		Operations.writetoUIconsole("AccountNumber : " + AccountNumber);
-		Operations.writetoUIconsole("ServiceNumber : " + ServiceNumber);
-		Operations.writetoUIconsole("ServiceOrder  : " + ServiceOrderNumber);
+		MainWindow.writetoUIconsole("");
+		MainWindow.writetoUIconsole("AccountNumber : " + AccountNumber);
+		MainWindow.writetoUIconsole("ServiceNumber : " + ServiceNumber);
+		MainWindow.writetoUIconsole("ServiceOrder  : " + ServiceOrderNumber);
 		
 		try
 		{
@@ -222,7 +223,7 @@ public class San_ASN
 		}
 		catch(IOException io)
 		{
-			Operations.writetoUIconsole("IOException occured. Please update datafile(config file) manually");
+			MainWindow.writetoUIconsole("IOException occured. Please update datafile(config file) manually");
 		}
 		
 		return passed;

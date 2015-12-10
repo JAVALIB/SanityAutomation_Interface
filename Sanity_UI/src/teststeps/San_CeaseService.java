@@ -6,6 +6,7 @@ import regression_suite.Operations;
 import regression_suite.TestStepActions;
 import testcases.Check;
 import testdata.TestData;
+import application_ui.MainWindow;
 
 public class San_CeaseService 
 {
@@ -149,10 +150,10 @@ public class San_CeaseService
 		xpath = "//td[contains(.,'Account Number')]/./following::span[@class='iceOutTxt'][4]";
 		ServiceOrderNumber = tsa.getDatafromPage(xpath);
 		
-		Operations.writetoUIconsole("");
-		Operations.writetoUIconsole("AccountNumber : " + AccountNumber);
-		Operations.writetoUIconsole("ServiceNumber : " + ServiceNumber);
-		Operations.writetoUIconsole("ServiceOrder  : " + ServiceOrderNumber);
+		MainWindow.writetoUIconsole("");
+		MainWindow.writetoUIconsole("AccountNumber : " + AccountNumber);
+		MainWindow.writetoUIconsole("ServiceNumber : " + ServiceNumber);
+		MainWindow.writetoUIconsole("ServiceOrder  : " + ServiceOrderNumber);
 		
 		TestData.ceaseSONumber = ServiceOrderNumber;
 		
@@ -199,7 +200,7 @@ public class San_CeaseService
 	{
 		xpath = "//*[text()[contains(.,'Service Order List')]]";
 		passed = tsa.waitUntil(xpath);
-		Operations.writetoUIconsole("Passed");
+		MainWindow.writetoUIconsole("Passed");
 		
 		return passed;
 	}

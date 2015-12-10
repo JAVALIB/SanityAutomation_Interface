@@ -70,12 +70,6 @@ public class Operations
 		}
 		
 	}
-	
-	public static void writetoUIconsole(String message)
-	{
-		MainWindow.consoleArea.append("\n"+message);
-		MainWindow.consoleArea.revalidate();
-	}
 
 	public static void takeScreenshot()
 	{
@@ -90,11 +84,11 @@ public class Operations
 		}
 		catch (IOException e) 
 		{
-			writetoUIconsole("Not able to save screenshot for " + filename + " in " + location);
+			MainWindow.writetoUIconsole("Not able to save screenshot for " + filename + " in " + location);
 			e.printStackTrace();
 		}
 
-		writetoUIconsole(" - Took Screenshot : " + filename);
+		MainWindow.writetoUIconsole(" - Took Screenshot : " + filename);
 	}
 	
 	public static void initReportLocation()
@@ -102,7 +96,7 @@ public class Operations
 		File file = new File(TestData.parentDir);
 		if (!file.exists()) 
 		{
-		    writetoUIconsole("Creating Report Directory: " + TestData.reportLocation);
+			MainWindow.writetoUIconsole("Creating Report Directory: " + TestData.reportLocation);
 		    boolean result = false;
 
 		    try
@@ -116,7 +110,7 @@ public class Operations
 		    }        
 		    if(result) 
 		    {
-		        writetoUIconsole("Parent Directory created");  
+		    	MainWindow.writetoUIconsole("Parent Directory created");  
 		    }
 		}
 		
@@ -124,7 +118,7 @@ public class Operations
 		//Check for parent directory
 		if (!file.exists()) 
 		{
-		    writetoUIconsole("Creating Report Directory: " + TestData.reportLocation);
+			MainWindow.writetoUIconsole("Creating Report Directory: " + TestData.reportLocation);
 		    boolean result = false;
 
 		    try
@@ -138,22 +132,22 @@ public class Operations
 		    }        
 		    if(result) 
 		    {
-		        writetoUIconsole("Parent Directory created");  
+		    	MainWindow.writetoUIconsole("Parent Directory created");  
 		    }
 		}
 		else
 		{
-			writetoUIconsole("Initialized Parent Directory..");
+			MainWindow.writetoUIconsole("Initialized Parent Directory..");
 		}
 	
 		TestData.reportLocation = TestData.reportLocation + TestData.currentBuild + "\\";
 		
-		writetoUIconsole(TestData.reportLocation);
+		MainWindow.writetoUIconsole(TestData.reportLocation);
 		
 		file = new File(TestData.reportLocation);
 		if (!file.exists()) 
 		{
-		    writetoUIconsole("Creating Report Directory: " + TestData.reportLocation);
+			MainWindow.writetoUIconsole("Creating Report Directory: " + TestData.reportLocation);
 		    boolean result = false;
 
 		    try
@@ -167,12 +161,12 @@ public class Operations
 		    }        
 		    if(result) 
 		    {
-		        writetoUIconsole("Report Directory created");  
+		    	MainWindow.writetoUIconsole("Report Directory created");  
 		    }
 		}
 		else
 		{
-			writetoUIconsole("Initialized Reports Directory..");
+			MainWindow.writetoUIconsole("Initialized Reports Directory..");
 			MainWindow.Reportlocation.setText(TestData.reportLocation);
 		}
 	}

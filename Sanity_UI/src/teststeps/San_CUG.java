@@ -1,11 +1,10 @@
 package teststeps;
 
-import org.openqa.selenium.StaleElementReferenceException;
-
 import regression_suite.Operations;
 import regression_suite.TestStepActions;
 import testcases.Check;
 import testdata.TestData;
+import application_ui.MainWindow;
 
 public class San_CUG 
 {
@@ -39,19 +38,8 @@ public class San_CUG
 	{
 		xpath = "//a[contains(@href,'cugTab')]";
 		passed = tsa.waitUntil(xpath);
-		
-		for (int i = 0; i < 3; i++) 
-		{
-			try 
-			{
-				passed = tsa.clickOn(xpath);
-			}
-			catch (StaleElementReferenceException e) 
-			{
-				Operations.waitFor(100);
-				Operations.writetoUIconsole("\tStale element occured. Retrying..");
-			}
-		}
+		passed = tsa.clickOn(xpath);
+
 		return passed;
 	}
 	public boolean testStep_4()
@@ -236,12 +224,12 @@ public class San_CUG
 			xpath = "//*[text()[contains(.,'" + CUGid + "')]]";
 			passed = tsa.waitUntil(xpath);
 			passed = tsa.clickOn(xpath);
-			Operations.writetoUIconsole("CUG Passed");		
+			MainWindow.writetoUIconsole("CUG Passed");		
 		}
 		
 		catch(Exception e)
 		{
-			Operations.writetoUIconsole("Number not added to CUG " + CUGid + " properly");
+			MainWindow.writetoUIconsole("Number not added to CUG " + CUGid + " properly");
 		}
 		
 		return passed;

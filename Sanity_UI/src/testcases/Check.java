@@ -5,6 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import regression_suite.Operations;
+import application_ui.MainWindow;
 
 public class Check 
 {
@@ -38,7 +39,7 @@ public class Check
 		errorOccured = driver.findElements(By.xpath("//*[text()[contains(.,'n unknown error has occurred')]]")).size() != 0;
 		
 		if (errorOccured)
-			Operations.writetoUIconsole("An Unknown Error occured. Trying to proceed with Testing");
+			MainWindow.writetoUIconsole("An Unknown Error occured. Trying to proceed with Testing");
 		
 		return errorOccured;	
 	}
@@ -49,7 +50,7 @@ public class Check
 
 		//TODO Add check for serverInternalError
 		if (errorOccured)
-			Operations.writetoUIconsole("Server Internal Error occured. Trying to proceed with Testing");
+			MainWindow.writetoUIconsole("Server Internal Error occured. Trying to proceed with Testing");
 
 		return errorOccured;	
 	}
@@ -60,7 +61,7 @@ public class Check
 
 		//TODO Add check for networkConnectionInterrupted
 		if (errorOccured)
-			Operations.writetoUIconsole("Network Connection Interrupted. Trying to proceed with Testing");
+			MainWindow.writetoUIconsole("Network Connection Interrupted. Trying to proceed with Testing");
 
 		return errorOccured;
 	}
@@ -77,8 +78,8 @@ public class Check
 		//TODO Add check for networkConnectionInterrupted
 		if (errorOccured)
 		{
-			Operations.writetoUIconsole("\tAn Following Excpetion occured.");
-			Operations.writetoUIconsole("\t" + errorMsg);
+			MainWindow.writetoUIconsole("\tAn Following Excpetion occured.");
+			MainWindow.writetoUIconsole("\t" + errorMsg);
 		}
 		return errorOccured;
 	}

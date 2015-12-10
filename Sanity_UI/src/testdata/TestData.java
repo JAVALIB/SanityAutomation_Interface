@@ -7,8 +7,8 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Properties;
 
-import regression_suite.Operations;
 import regression_suite.SanitySuite;
+import application_ui.MainWindow;
 
 public class TestData 
 {
@@ -55,7 +55,7 @@ public class TestData
 	
 	public static boolean initializeConfigFile() 
 	{
-		Operations.writetoUIconsole("Initializing Properties file.");
+		MainWindow.writetoUIconsole("Initializing Properties file.");
 		File f = new File("config.properties");
 		if(f.exists() && !f.isDirectory())	
 		{
@@ -67,12 +67,12 @@ public class TestData
 			}
 			catch(FileNotFoundException fe)
 			{
-				Operations.writetoUIconsole("Config file not found");
+				MainWindow.writetoUIconsole("Config file not found");
 				fe.printStackTrace();
 			}
 			catch(IOException ie)
 			{
-				Operations.writetoUIconsole("IO Error");
+				MainWindow.writetoUIconsole("IO Error");
 				ie.printStackTrace();
 			}
 		}
@@ -85,7 +85,7 @@ public class TestData
 			}
 			catch (IOException e) 
 			{
-				Operations.writetoUIconsole("Not Able to create properties file..");
+				MainWindow.writetoUIconsole("Not Able to create properties file..");
 				e.printStackTrace();
 			}
 		}
@@ -94,7 +94,7 @@ public class TestData
 	
 	public static void checkProperties() throws IOException
 	{
-		Operations.writetoUIconsole("Checking properties.");
+		MainWindow.writetoUIconsole("Checking properties.");
 		
 		String property;
 		Boolean corrected = false;
@@ -186,11 +186,11 @@ public class TestData
 		
 		if (corrected)
 		{
-			Operations.writetoUIconsole("Added missing properties in file");
+			MainWindow.writetoUIconsole("Added missing properties in file");
 		}
 		else
 		{
-			Operations.writetoUIconsole("Properties check PASSED");
+			MainWindow.writetoUIconsole("Properties check PASSED");
 		}
 		//Saving properties file
 		saveChangestoConfigFile();
@@ -198,7 +198,7 @@ public class TestData
 	
 	public static void loadProperties_Regression()
 	{
-		Operations.writetoUIconsole("Loading Properties");
+		MainWindow.writetoUIconsole("Loading Properties");
 		
 		URL_13BT 			= props.getProperty("13BTURL");
 		URL_14AT			= props.getProperty("14ATURL");
@@ -233,12 +233,12 @@ public class TestData
 		
 		parentDir			= props.getProperty("parentDir"); 
 		reportLocation		= props.getProperty("Reports_13BT");
-		Operations.writetoUIconsole("Properties loaded");
+		MainWindow.writetoUIconsole("Properties loaded");
 	}
 	
 	public static void loadProperties_Sanity()
 	{
-		Operations.writetoUIconsole("Loading Properties");
+		MainWindow.writetoUIconsole("Loading Properties");
 		
 		URL_13BT 			= props.getProperty("13BTURL");
 		URL_14AT			= props.getProperty("14ATURL");
@@ -271,21 +271,23 @@ public class TestData
 		
 		parentDir			= props.getProperty("Sanity_parentDir");
 		
-		Operations.writetoUIconsole("Properties loaded");
+		reportLocation		= parentDir;
+		
+		MainWindow.writetoUIconsole("Properties loaded");
 	}
 	
 	public static void getSanityReportLocation()
 	{
 		if(SanitySuite.autURL == TestData.URL_14AT)
 		{
-			reportLocation		= props.getProperty("Sanity_Reports_14AT");
+//			reportLocation		= props.getProperty("Sanity_Reports_14AT");
 			AccountNumber		= AccNumber14AT;
 			Department			= props.getProperty("defDepartment14AT");
 			Site				= props.getProperty("defSite14AT");
 		}
 		else if(SanitySuite.autURL == TestData.URL_13BT)
 		{
-			reportLocation		= props.getProperty("Sanity_Reports_13BT");
+//			reportLocation		= props.getProperty("Sanity_Reports_13BT");
 			AccountNumber		= AccNumber13BT;
 			Department			= props.getProperty("defDepartment13BT");
 			Site				= props.getProperty("defSite13BT");
@@ -302,7 +304,7 @@ public class TestData
 		}
 		catch(IOException ie)
 		{
-			Operations.writetoUIconsole("\tIOException occured while writing config file.");
+			MainWindow.writetoUIconsole("\tIOException occured while writing config file.");
 		}
 	}
 

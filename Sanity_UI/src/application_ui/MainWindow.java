@@ -1,4 +1,5 @@
 package application_ui;
+import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
@@ -27,7 +28,6 @@ import javax.swing.JTextArea;
 import net.miginfocom.swing.MigLayout;
 import regression_suite.Operations;
 import regression_suite.SanitySuite;
-import java.awt.Color;
 
 
 public class MainWindow extends JFrame 
@@ -97,7 +97,7 @@ public class MainWindow extends JFrame
 	 * Create the frame.
 	 */
 	public MainWindow() 
-	{		
+	{	
 		File MainWindowIcon = new File("Resources/Icons/MainWindowIcon.png");
 		try 
 		{
@@ -134,6 +134,14 @@ public class MainWindow extends JFrame
 		menuBar.add(mnEdit);
 		
 		JMenuItem mntmPreference = new JMenuItem("Preference");
+		mntmPreference.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseReleased(MouseEvent arg0) 
+			{
+				PreferenceWindow prefWindow = new PreferenceWindow();
+				prefWindow.setVisible(true);
+			}
+		});
 		mnEdit.add(mntmPreference);
 		
 		JMenu mnHelp = new JMenu("Help");
@@ -147,6 +155,7 @@ public class MainWindow extends JFrame
 			{
 				AboutWindow aboutwindow = new AboutWindow();
 				aboutwindow.setVisible(true);
+				aboutwindow.setAlwaysOnTop(true);
 			}
 		});
 		mnHelp.add(mntmAbout_1);
@@ -387,5 +396,11 @@ public class MainWindow extends JFrame
 			}
 		});
 		
+	}
+	
+	public static void writetoUIconsole(String message)
+	{
+		MainWindow.consoleArea.append("\n"+message);
+		MainWindow.consoleArea.revalidate();
 	}
 }

@@ -4,6 +4,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import regression_suite.Operations;
 import regression_suite.TestStepActions;
+import application_ui.MainWindow;
 
 public class San_GenerateVerifyReport
 {
@@ -152,7 +153,7 @@ public class San_GenerateVerifyReport
 		}
 		else
 		{
-			Operations.writetoUIconsole("CIR394G02 Report is not generated..");
+			MainWindow.writetoUIconsole("CIR394G02 Report is not generated..");
 			passed = false;
 		}
 		

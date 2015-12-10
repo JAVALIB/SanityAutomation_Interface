@@ -7,6 +7,7 @@ import regression_suite.SanitySuite;
 import regression_suite.TestStepActions;
 import testcases.Check;
 import testdata.TestData;
+import application_ui.MainWindow;
 
 public class San_FaultManagement 
 {
@@ -81,7 +82,7 @@ public class San_FaultManagement
 		
 		xpath = "//td[contains(.,'Fault Number')]/./following::span[@class='iceOutTxt'][1]";
 		FaultNumber = tsa.getDatafromPage(xpath);
-		Operations.writetoUIconsole(FaultNumber);
+		MainWindow.writetoUIconsole(FaultNumber);
 		
 		xpath = "//*[text()[contains(.,'Manage Fault')]]";
 		passed = tsa.clickOn(xpath);
@@ -240,12 +241,12 @@ public class San_FaultManagement
 		
 		if (FaultStatus == "Cleared")
 		{
-			Operations.writetoUIconsole("Passed");
+			MainWindow.writetoUIconsole("Passed");
 			passed = true;
 		}
 		else
 		{
-			Operations.writetoUIconsole("Failed");
+			MainWindow.writetoUIconsole("Failed");
 			passed = false;
 		}
 		return passed;

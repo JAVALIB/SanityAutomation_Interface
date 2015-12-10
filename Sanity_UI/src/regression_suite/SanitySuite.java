@@ -56,7 +56,7 @@ public class SanitySuite implements Runnable
 		teststeps.Lib_LoginLogout.Lib_LogoutExit();
 		
 		endTime = System.currentTimeMillis();
-		Operations.writetoUIconsole("Time took for total Execution is : " + (endTime - startTime)/1000 + " seconds." );
+		MainWindow.writetoUIconsole("Time took for total Execution is : " + (endTime - startTime)/1000 + " seconds." );
 	}
 
 	@Override

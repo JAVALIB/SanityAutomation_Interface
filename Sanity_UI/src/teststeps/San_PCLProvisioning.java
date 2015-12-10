@@ -9,6 +9,7 @@ import regression_suite.Operations;
 import regression_suite.SanitySuite;
 import regression_suite.TestStepActions;
 import testdata.TestData;
+import application_ui.MainWindow;
 
 public class San_PCLProvisioning 
 {
@@ -237,7 +238,7 @@ public class San_PCLProvisioning
 		xpath = "//td[contains(.,'Account Number')]/./following::span[@class='iceOutTxt'][1]";
 		createdAccountNumber = tsa.getDatafromPage(xpath);
 		
-		Operations.writetoUIconsole("\tAccount Created : " + createdAccountNumber);
+		MainWindow.writetoUIconsole("\tAccount Created : " + createdAccountNumber);
 		
 		xpath = "//select[contains(@id,'departmentCode')]";
 		passed = tsa.selectBy(xpath, TestData.Department);
@@ -421,10 +422,10 @@ public class San_PCLProvisioning
 		TestData.provSONumber = tsa.getDatafromPage(xpath);
 		
 		
-		Operations.writetoUIconsole("");
-		Operations.writetoUIconsole("AccountNumber : " + TestData.AccountNumber);
-		Operations.writetoUIconsole("ServiceNumber : " + TestData.ServiceNumber);
-		Operations.writetoUIconsole("ServiceOrder  : " + TestData.provSONumber);
+		MainWindow.writetoUIconsole("");
+		MainWindow.writetoUIconsole("AccountNumber : " + TestData.AccountNumber);
+		MainWindow.writetoUIconsole("ServiceNumber : " + TestData.ServiceNumber);
+		MainWindow.writetoUIconsole("ServiceOrder  : " + TestData.provSONumber);
 		
 		try
 		{
@@ -501,7 +502,7 @@ public class San_PCLProvisioning
 	{
 		xpath = "//*[text()[contains(.,'Service Order List')]]";
 		tsa.waitUntil(xpath);
-		Operations.writetoUIconsole("Passed");
+		MainWindow.writetoUIconsole("Passed");
 		
 		return passed;
 	}

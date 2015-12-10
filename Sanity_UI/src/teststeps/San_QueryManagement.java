@@ -7,6 +7,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import regression_suite.Operations;
 import regression_suite.TestStepActions;
 import testdata.TestData;
+import application_ui.MainWindow;
 
 public class San_QueryManagement 
 {
@@ -86,12 +87,12 @@ public class San_QueryManagement
 		
 		if (RaisedQueryNumber != "")
 		{
-			Operations.writetoUIconsole("Raised Query Number : " + RaisedQueryNumber);
+			MainWindow.writetoUIconsole("Raised Query Number : " + RaisedQueryNumber);
 			passed = true;
 		}
 		else
 		{
-			Operations.writetoUIconsole("Query Number Not available..");
+			MainWindow.writetoUIconsole("Query Number Not available..");
 			passed = false;
 		}
 		

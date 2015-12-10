@@ -13,6 +13,7 @@ import org.apache.poi.xwpf.usermodel.XWPFParagraph;
 import org.apache.poi.xwpf.usermodel.XWPFRun;
 
 import testdata.TestData;
+import application_ui.MainWindow;
 
 public class TestReport 
 {    
@@ -79,7 +80,7 @@ public class TestReport
 			e.printStackTrace();
 		}
 		
-		Operations.writetoUIconsole("Created Document " + documentName + ".docx");
+	    MainWindow.writetoUIconsole("Created Document " + documentName + ".docx");
 		//TODO add create screenshot document code
 	}
 	

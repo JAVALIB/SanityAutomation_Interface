@@ -46,7 +46,7 @@ public class Lib_LoginLogout
 
 			xpath = "//*[text()[contains(.,'Logout')]]";
 			tsa.waitUntil(xpath);
-			Operations.writetoUIconsole("Logged in");
+			MainWindow.writetoUIconsole("Logged in");
 			
 			TestData.currentBuild = driver.findElement(By.xpath("(//span[contains(@id,'headerForm')])[5]")).getText();
 			TestData.currentBuild = TestData.currentBuild.substring(34, 37);
@@ -57,11 +57,11 @@ public class Lib_LoginLogout
 		}
 		else if (loggedIn)
 		{
-			Operations.writetoUIconsole("Already logged in");
+			MainWindow.writetoUIconsole("Already logged in");
 		}
 		else
 		{
-			Operations.writetoUIconsole("Not able to log in");
+			MainWindow.writetoUIconsole("Not able to log in");
 		}
 	}
 	
