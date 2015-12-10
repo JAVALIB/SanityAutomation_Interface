@@ -27,6 +27,7 @@ import javax.swing.JTextArea;
 import net.miginfocom.swing.MigLayout;
 import regression_suite.Operations;
 import regression_suite.SanitySuite;
+import java.awt.Color;
 
 
 public class MainWindow extends JFrame 
@@ -64,6 +65,11 @@ public class MainWindow extends JFrame
 	public static JButton btnClearClose;
 	
 	public static JTextArea consoleArea = null;
+	private JLabel label;
+	private JLabel lblPreviousBuild;
+	private JLabel lblReportLocation;
+	private JLabel lblReportlocation;
+	private JLabel colon_Label_1;
 	
 	/**
 	 * Launch the application.
@@ -148,7 +154,7 @@ public class MainWindow extends JFrame
 		
 		JPanel panel = new JPanel();
 		getContentPane().add(panel);
-		panel.setLayout(new MigLayout("", "[][][][][][grow][]", "[][][][][][][][][][][][][][grow]"));
+		panel.setLayout(new MigLayout("", "[][][][][][][][][grow]", "[][][][][][][][][][][][][][grow]"));
 		
 		chckbxSelectAll = new JCheckBox("");
 		chckbxSelectAll.addItemListener(new ItemListener() {
@@ -190,6 +196,7 @@ public class MainWindow extends JFrame
 		panel.add(chckbxSelectAll, "cell 0 0");
 		
 		JLabel lblSelectAll = new JLabel("Select All");
+		lblSelectAll.setLabelFor(chckbxSelectAll);
 		panel.add(lblSelectAll, "cell 1 0,alignx left");
 		
 		btnExecute = new JButton("Execute");
@@ -201,8 +208,9 @@ public class MainWindow extends JFrame
 		        
 		        automation.start();
 		        
-				MainWindow.btnClearClose.setText("Close");
+				MainWindow.btnClearClose.setText("Stop");
 				MainWindow.btnExecute.setEnabled(false);
+				MainWindow.autSelection.setEnabled(false);
 			}
 		});
 		
@@ -215,13 +223,14 @@ public class MainWindow extends JFrame
 		btnClearClose.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) 
 			{
-				if(btnClearClose.getText()=="Close")
+				if(btnClearClose.getText()=="Stop")
 				{
 					Operations.driver.close();
 					Operations.driver.quit();
 					
 					MainWindow.btnClearClose.setText("Clear");
 					MainWindow.btnExecute.setEnabled(true);
+					MainWindow.autSelection.setEnabled(true);
 				}
 				else if(btnClearClose.getText()=="Clear")
 				{
@@ -238,6 +247,7 @@ public class MainWindow extends JFrame
 					
 					chckbxSelectAll.setSelected(false);
 					MainWindow.btnExecute.setEnabled(true);
+					MainWindow.autSelection.setEnabled(true);
 				}
 			}
 		});
@@ -247,24 +257,42 @@ public class MainWindow extends JFrame
 		panel.add(San_PCLProvisioning, "cell 0 2");
 		
 		JLabel lblPclProvisioning = new JLabel("PCL Provisioning");
+		lblPclProvisioning.setLabelFor(San_PCLProvisioning);
 		panel.add(lblPclProvisioning, "cell 1 2,alignx left");
 		
 		San_PCLProvisioning_status = new JLabel("");
 		panel.add(San_PCLProvisioning_status, "cell 3 2");
 		
+		lblPreviousBuild = new JLabel("Previous Build");
+		panel.add(lblPreviousBuild, "cell 5 2");
+		
+		colon_Label_1 = new JLabel(":");
+		panel.add(colon_Label_1, "cell 6 2");
+		
+		colon_Label_1 = new JLabel(":");
+		panel.add(colon_Label_1, "cell 6 3");
+		
+		colon_Label_1 = new JLabel(":");
+		panel.add(colon_Label_1, "cell 6 5");
+		
 		San_ASN = new JCheckBox("");
 		panel.add(San_ASN, "cell 0 3");
 		
 		JLabel lblAlterServiceNumber = new JLabel("Alter Service Number");
+		lblAlterServiceNumber.setLabelFor(San_ASN);
 		panel.add(lblAlterServiceNumber, "cell 1 3,alignx left");
 		
 		San_ASN_status = new JLabel("");
 		panel.add(San_ASN_status, "cell 3 3");
 		
+		label = new JLabel("Current Build");
+		panel.add(label, "cell 5 3");
+		
 		San_CUG = new JCheckBox("");
 		panel.add(San_CUG, "cell 0 4");
 		
 		JLabel lblCreatCugAnd = new JLabel("Create CUG and add Service");
+		lblCreatCugAnd.setLabelFor(San_CUG);
 		panel.add(lblCreatCugAnd, "cell 1 4,alignx left");
 		
 		San_CUG_status = new JLabel("");
@@ -274,15 +302,24 @@ public class MainWindow extends JFrame
 		panel.add(San_FaultManagement, "cell 0 5");
 		
 		JLabel lblMaintainFault = new JLabel("Maintain Fault");
+		lblMaintainFault.setLabelFor(San_FaultManagement);
 		panel.add(lblMaintainFault, "cell 1 5,alignx left");
 		
 		San_FaultManagement_status = new JLabel("");
 		panel.add(San_FaultManagement_status, "cell 3 5");
 		
+		lblReportLocation = new JLabel("Report Location");
+		panel.add(lblReportLocation, "cell 5 5");
+		
+		lblReportlocation = new JLabel("WillShowRepotLocationHere");
+		lblReportlocation.setForeground(Color.BLUE);
+		panel.add(lblReportlocation, "cell 7 5");
+		
 		San_CeaseService = new JCheckBox("");
 		panel.add(San_CeaseService, "cell 0 6");
 		
 		JLabel lblCeaseService = new JLabel("Cease Service");
+		lblCeaseService.setLabelFor(San_CeaseService);
 		panel.add(lblCeaseService, "cell 1 6,alignx left");
 		
 		San_CeaseService_status = new JLabel("");
@@ -292,6 +329,7 @@ public class MainWindow extends JFrame
 		panel.add(San_QueryManagement, "cell 0 7");
 		
 		JLabel lblMaintainQuery = new JLabel("Maintain Query");
+		lblMaintainQuery.setLabelFor(San_QueryManagement);
 		panel.add(lblMaintainQuery, "cell 1 7,alignx left");
 		
 		San_QueryManagement_status = new JLabel("");
@@ -301,6 +339,7 @@ public class MainWindow extends JFrame
 		panel.add(San_SinglePayment, "cell 0 8");
 		
 		JLabel lblSinglePayment = new JLabel("Single Payment");
+		lblSinglePayment.setLabelFor(San_SinglePayment);
 		panel.add(lblSinglePayment, "cell 1 8,alignx left");
 		
 		San_SinglePayment_status = new JLabel("");
@@ -310,6 +349,7 @@ public class MainWindow extends JFrame
 		panel.add(San_MaintainDepositReason, "cell 0 9");
 		
 		JLabel lblCreateDepositReason = new JLabel("Create Deposit Reason");
+		lblCreateDepositReason.setLabelFor(San_MaintainDepositReason);
 		panel.add(lblCreateDepositReason, "cell 1 9,alignx left");
 		
 		San_MaintainDepositReason_status = new JLabel("");
@@ -319,6 +359,7 @@ public class MainWindow extends JFrame
 		panel.add(San_GenerateVerifyReport, "cell 0 10");
 		
 		JLabel lblGenerateReport = new JLabel("Generate Report");
+		lblGenerateReport.setLabelFor(San_GenerateVerifyReport);
 		panel.add(lblGenerateReport, "cell 1 10,alignx left");
 		
 		San_GenerateVerifyReport_status = new JLabel("");
@@ -329,7 +370,7 @@ public class MainWindow extends JFrame
 //		panel.add(consoleArea, "cell 0 11 6 3,grow");
 
 		JScrollPane scrollPane = new JScrollPane(consoleArea);
-		panel.add(scrollPane, "cell 0 11 6 3,grow");
+		panel.add(scrollPane, "cell 0 11 9 3,grow");
 	
 //		chckbxComverse = new JCheckBox("");
 //		panel.add(chckbxComverse, "cell 0 11");
