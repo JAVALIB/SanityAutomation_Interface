@@ -51,7 +51,7 @@ public class AboutWindow extends JFrame {
 			e1.printStackTrace();
 		}
 		
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 300, 175);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -61,7 +61,7 @@ public class AboutWindow extends JFrame {
 		JLabel lblSanityAutomationSuite = new JLabel("Sanity Automation Suite");
 		contentPane.add(lblSanityAutomationSuite, "cell 3 0,alignx center");
 		
-		JLabel lblVersionwip = new JLabel("Version 0.1.13 (WIP alpha)");
+		JLabel lblVersionwip = new JLabel("Version 0.2.0 (WIP alpha)");
 		contentPane.add(lblVersionwip, "cell 3 1,alignx center");
 		
 		JLabel lblCodedBy = new JLabel("Coded By : Nikhil Das");
