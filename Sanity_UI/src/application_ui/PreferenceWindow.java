@@ -135,7 +135,10 @@ public class PreferenceWindow extends JFrame {
 			public void actionPerformed(ActionEvent e) 
 			{
 				TestData.props.setProperty("userName", autUsername.getText());
-				TestData.props.setProperty("password", autPassword.getPassword().toString());
+				
+				String password = new String(autPassword.getPassword()); 
+				
+				TestData.props.setProperty("password", password);
 				TestData.props.setProperty("Sanity_parentDir", reportLocation.getText());
 				
 				TestData.saveChangestoConfigFile();
