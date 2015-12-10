@@ -25,11 +25,14 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 
 import net.miginfocom.swing.MigLayout;
+import regression_suite.Operations;
 import regression_suite.SanitySuite;
 
 
 public class MainWindow extends JFrame 
 {
+	private static Thread automation;
+	
 	private static final long serialVersionUID = 1L;
 
 	public static JCheckBox San_PCLProvisioning;
@@ -58,7 +61,7 @@ public class MainWindow extends JFrame
 	public static JComboBox<String> autSelection;
 	
 	public static JButton btnExecute;
-	public static JButton btnClearSelection;
+	public static JButton btnClearClose;
 	
 	public static JTextArea consoleArea = null;
 	
@@ -194,9 +197,12 @@ public class MainWindow extends JFrame
 			public void actionPerformed(ActionEvent arg0) 
 			{
 				SanitySuite suite = new SanitySuite();
-		        Thread t = new Thread(suite);
+		        automation = new Thread(suite);
 		        
-		        t.start();
+		        automation.start();
+		        
+				MainWindow.btnClearClose.setText("Close");
+				MainWindow.btnExecute.setEnabled(false);
 			}
 		});
 		
@@ -205,25 +211,37 @@ public class MainWindow extends JFrame
 		panel.add(autSelection, "cell 2 0,growx");
 		panel.add(btnExecute, "cell 3 0");
 		
-		btnClearSelection = new JButton("Clear Selection");
-		btnClearSelection.addActionListener(new ActionListener() {
+		btnClearClose = new JButton("Clear");
+		btnClearClose.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) 
 			{
-				San_PCLProvisioning.setSelected(false);
-				San_ASN.setSelected(false);;
-				San_CUG.setSelected(false);;
-				San_FaultManagement.setSelected(false);;
-				San_CeaseService.setSelected(false);;
-				San_QueryManagement.setSelected(false);;
-				San_SinglePayment.setSelected(false);;
-				San_MaintainDepositReason.setSelected(false);;
-				San_GenerateVerifyReport.setSelected(false);;
-//				chckbxComverse.setSelected(false);;
-				
-				chckbxSelectAll.setSelected(false);
+				if(btnClearClose.getText()=="Close")
+				{
+					Operations.driver.close();
+					Operations.driver.quit();
+					
+					MainWindow.btnClearClose.setText("Clear");
+					MainWindow.btnExecute.setEnabled(true);
+				}
+				else if(btnClearClose.getText()=="Clear")
+				{
+					San_PCLProvisioning.setSelected(false);
+					San_ASN.setSelected(false);;
+					San_CUG.setSelected(false);;
+					San_FaultManagement.setSelected(false);;
+					San_CeaseService.setSelected(false);;
+					San_QueryManagement.setSelected(false);;
+					San_SinglePayment.setSelected(false);;
+					San_MaintainDepositReason.setSelected(false);;
+					San_GenerateVerifyReport.setSelected(false);;
+	//				chckbxComverse.setSelected(false);;
+					
+					chckbxSelectAll.setSelected(false);
+					MainWindow.btnExecute.setEnabled(true);
+				}
 			}
 		});
-		panel.add(btnClearSelection, "cell 4 0");
+		panel.add(btnClearClose, "cell 4 0");
 		
 		San_PCLProvisioning = new JCheckBox("");
 		panel.add(San_PCLProvisioning, "cell 0 2");

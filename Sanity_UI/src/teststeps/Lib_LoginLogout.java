@@ -9,6 +9,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import regression_suite.Operations;
 import regression_suite.TestStepActions;
 import testdata.TestData;
+import application_ui.MainWindow;
 
 public class Lib_LoginLogout 
 {
@@ -72,6 +73,9 @@ public class Lib_LoginLogout
 	{
 		driver.close();
 		driver.quit();
+		
+		MainWindow.btnClearClose.setText("Clear");
+		MainWindow.btnExecute.setEnabled(true);
 	}
 }
 

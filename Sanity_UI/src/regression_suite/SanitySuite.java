@@ -32,7 +32,6 @@ public class SanitySuite implements Runnable
 		TestData.getSanityReportLocation();
 		
 		teststeps.Lib_LoginLogout.Lib_Login(autURL);
-		TestReport.createScreenshotDocument();
 		
 		if (MainWindow.San_PCLProvisioning.isSelected())
 			San_TestCase.executePCLProvisioning();
