@@ -21,12 +21,9 @@ public class San_PCLProvisioning
 	boolean passed	= true;
 	
 	String servPack;
-//	public static final String ExchID = "GSMP";
-//	public static final String NumArea = "GSPR";
-	
-	//13BT
-	public static final String ExchID = "MSCA";
-	public static final String NumArea = "SMPO";
+
+	public static String ExchID = "";
+	public static String NumArea = "";
 
 	public static String createdAccountNumber = "";
 	int i;
@@ -324,6 +321,17 @@ public class San_PCLProvisioning
 
 	public boolean testStep_11()
 	{
+		if(SanitySuite.autURL == TestData.URL_14AT)
+		{
+			ExchID = "GSMP";
+			NumArea = "GSPR";
+		}
+		if(SanitySuite.autURL == TestData.URL_13BT)
+		{
+			ExchID = "MSCA";
+			NumArea = "SMPO";
+		}
+		
 		xpath = "//*[text()[contains(.,'Service Details')]]";
 		passed = tsa.waitUntil(xpath);		
 		
