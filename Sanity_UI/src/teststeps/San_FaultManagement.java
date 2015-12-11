@@ -1,6 +1,6 @@
 package teststeps;
 
-import org.openqa.selenium.TimeoutException;
+import java.awt.event.KeyEvent;
 
 import regression_suite.Operations;
 import regression_suite.SanitySuite;
@@ -143,16 +143,11 @@ public class San_FaultManagement
 	public boolean testStep_10()
 	{
 		xpath = "//*[text()[contains(.,'" + FaultNote +"')]]";
+		passed = tsa.waitUntil(xpath);
 		
-		try
-		{
-			passed = tsa.waitUntil(xpath);
-			return passed;
-		}
-		catch (TimeoutException e)
-		{
-			return false;
-		}
+		tsa.keyPress(KeyEvent.VK_PAGE_UP);
+		
+		return passed;
 	}
 	
 	public boolean testStep_11()
@@ -249,6 +244,7 @@ public class San_FaultManagement
 			MainWindow.writetoUIconsole("Failed");
 			passed = false;
 		}
+		tsa.keyPress(KeyEvent.VK_PAGE_UP);
 		return passed;
 	}
 }
