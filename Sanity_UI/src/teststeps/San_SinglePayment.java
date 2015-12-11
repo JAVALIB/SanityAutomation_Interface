@@ -3,7 +3,9 @@ package teststeps;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import regression_suite.Operations;
+import regression_suite.SanitySuite;
 import regression_suite.TestStepActions;
+import testdata.TestData;
 
 public class San_SinglePayment 
 {
@@ -11,7 +13,7 @@ public class San_SinglePayment
 	
 	TestStepActions tsa = new TestStepActions();
 	
-	static String cashierDepartment = "CASH";
+	static String cashierDepartment = "";
 	static String accountNumber = "240004430000";
 	static String paymentType = "S";
 	static String paymentMethod = "C";
@@ -31,6 +33,11 @@ public class San_SinglePayment
 	
 	public boolean testStep_2()
 	{
+		if(SanitySuite.autURL == TestData.URL_13BT)
+			cashierDepartment = "CASH1";
+		else if (SanitySuite.autURL == TestData.URL_14AT)
+			cashierDepartment = "CASH";
+		
 		xpath = "//input[contains(@value,'hange')]";
 		passed = tsa.waitUntil(xpath);
 		passed = tsa.clickOn(xpath);
