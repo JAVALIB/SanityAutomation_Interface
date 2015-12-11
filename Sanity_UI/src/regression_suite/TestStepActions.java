@@ -154,11 +154,13 @@ public class TestStepActions
 			try
 			{
 				Operations.longWait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(xpath)));
+				passed = true;
 				break;
 			}
 			catch(TimeoutException se)
 			{
 				MainWindow.writetoUIconsole("\tTimeoutException Occured while waiting for '"+xpath+"'. Exiting");
+				passed = false;
 				break;
 			}
 		}
@@ -177,8 +179,8 @@ public class TestStepActions
 			catch(TimeoutException se)
 			{
 				MainWindow.writetoUIconsole("\tTimeoutException Occured while waiting for '"+xpath+"'. Exiting");
+				passed = false;
 				break;
-
 			}
 		}
 		return passed;
@@ -196,8 +198,8 @@ public class TestStepActions
 			catch(TimeoutException se)
 			{
 				MainWindow.writetoUIconsole("\tTimeoutException Occured while waiting for '"+xpath+"'. Exiting");
+				passed = false;
 				break;
-
 			}
 		}
 		return passed;

@@ -176,14 +176,14 @@ public class San_FaultManagement
 		xpath = "//input[@value='Assign']";
 		passed = tsa.clickOn(xpath);
 		
+		tsa.keyPress(KeyEvent.VK_PAGE_UP);
+		
 		return passed;
 	}
 	
 	public boolean testStep_13()
 	{
-		xpath = "//*[text()[contains(.,'Assignment')]]";
-		passed = tsa.waitUntil(xpath);
-		
+		tsa.keyPress(KeyEvent.VK_PAGE_UP);
 		xpath = "//*[text()[contains(.,'Sign Off')]]";
 		passed = tsa.waitUntil(xpath);
 		passed = tsa.clickOn(xpath);
@@ -231,7 +231,7 @@ public class San_FaultManagement
 	public boolean testStep_14()
 	{
 		xpath = "//*[text()[contains(.,'Cleared')] and @id='manageFault:faultStatusId']";
-		passed = tsa.waitUntil(xpath);
+		passed = tsa.waitUntilshort(xpath);
 		String FaultStatus = tsa.getDatafromPage(xpath);
 		
 		if (FaultStatus == "Cleared")

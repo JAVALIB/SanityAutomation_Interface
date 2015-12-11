@@ -1,5 +1,6 @@
 package application_ui;
 import java.awt.Color;
+import java.awt.Desktop;
 import java.awt.EventQueue;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
@@ -24,7 +25,6 @@ import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
-import javax.swing.text.DefaultCaret;
 
 import net.miginfocom.swing.MigLayout;
 import regression_suite.Operations;
@@ -181,7 +181,6 @@ public class MainWindow extends JFrame
 					San_SinglePayment.setSelected(true);
 					San_MaintainDepositReason.setSelected(true);
 					San_GenerateVerifyReport.setSelected(true);
-//					chckbxComverse.setSelected(true);
 					
 					btnExecute.setEnabled(true);
 				}
@@ -197,7 +196,6 @@ public class MainWindow extends JFrame
 					San_SinglePayment.setSelected(false);
 					San_MaintainDepositReason.setSelected(false);
 					San_GenerateVerifyReport.setSelected(false);
-//					chckbxComverse.setSelected(false);
 					
 					btnExecute.setEnabled(false);
 				}
@@ -235,7 +233,14 @@ public class MainWindow extends JFrame
 			{
 				if(btnClearClose.getText()=="Stop")
 				{
-					Operations.driver.close();
+					try
+					{
+						Operations.driver.close();
+					}
+					catch(Exception e1)
+					{
+						writetoUIconsole("Not able to close browser (Already closed or Close it manually)");
+					}
 					Operations.driver.quit();
 					
 					MainWindow.btnClearClose.setText("Clear");
@@ -253,7 +258,6 @@ public class MainWindow extends JFrame
 					San_SinglePayment.setSelected(false);;
 					San_MaintainDepositReason.setSelected(false);;
 					San_GenerateVerifyReport.setSelected(false);;
-	//				chckbxComverse.setSelected(false);;
 					
 					chckbxSelectAll.setSelected(false);
 					MainWindow.btnExecute.setEnabled(true);
@@ -319,6 +323,19 @@ public class MainWindow extends JFrame
 		panel.add(lblReportLocation, "cell 5 5");
 		
 		Reportlocation = new JLabel("");
+		Reportlocation.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseReleased(MouseEvent arg0) 
+			{
+				try 
+				{
+					Desktop.getDesktop().open(new File(Reportlocation.getText()));
+				} catch (IOException e) {
+					writetoUIconsole("Not able to Open Report Location. Please make sure that the location exists.");
+					e.printStackTrace();
+				}
+			}
+		});
 		Reportlocation.setForeground(Color.BLUE);
 		panel.add(Reportlocation, "cell 7 5");
 		
@@ -374,21 +391,11 @@ public class MainWindow extends JFrame
 		
 		consoleArea = new JTextArea("");
 		
-		DefaultCaret caret = (DefaultCaret)consoleArea.getCaret();
-		caret.setUpdatePolicy(DefaultCaret.ALWAYS_UPDATE);
-		
 		consoleArea.setForeground(Color.BLUE);
 		consoleArea.setEditable(false);
-//		panel.add(consoleArea, "cell 0 11 6 3,grow");
 
 		JScrollPane scrollPane = new JScrollPane(consoleArea);
 		panel.add(scrollPane, "cell 0 11 9 3,grow");
-	
-//		chckbxComverse = new JCheckBox("");
-//		panel.add(chckbxComverse, "cell 0 11");
-//		
-//		JLabel lblComverseSubscriberRetrieve = new JLabel("Comverse Subscriber Retrieve");
-//		panel.add(lblComverseSubscriberRetrieve, "cell 1 11,alignx left");
 		
 		JMenuItem mntmAbout = new JMenuItem("About");
 		mntmAbout.addMouseListener(new MouseAdapter() {
@@ -398,7 +405,6 @@ public class MainWindow extends JFrame
 				AboutWindow aboutwindow = new AboutWindow();
 				
 				aboutwindow.setVisible(true);
-				//TODO Add About window
 			}
 		});
 		
@@ -408,5 +414,6 @@ public class MainWindow extends JFrame
 	{
 		MainWindow.consoleArea.append("\n"+message);
 		MainWindow.consoleArea.revalidate();
+		consoleArea.setCaretPosition(consoleArea.getDocument().getLength());
 	}
 }
