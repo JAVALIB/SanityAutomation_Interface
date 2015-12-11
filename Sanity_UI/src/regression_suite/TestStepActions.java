@@ -62,7 +62,7 @@ public class TestStepActions
 			}
 			catch(WebDriverException we)
 			{
-				MainWindow.writetoUIconsole("\tWebDriverException Occured- While sending data to '"+xpath+"' . Retrying");
+				MainWindow.writetoUIconsole("\tWebDriverException Occured- While clicking on '"+xpath+"' . Retrying");
 			}
 		}
 		
