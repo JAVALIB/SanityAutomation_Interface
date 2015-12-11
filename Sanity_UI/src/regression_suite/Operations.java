@@ -107,6 +107,7 @@ public class Operations
 		if (!file.exists()) 
 		{
 			MainWindow.writetoUIconsole("Creating Report Directory: " + TestData.reportLocation);
+			MainWindow.Reportlocation.setText(TestData.reportLocation);
 		    boolean result = false;
 
 		    try
