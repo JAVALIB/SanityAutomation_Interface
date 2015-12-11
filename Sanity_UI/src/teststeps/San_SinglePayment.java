@@ -3,17 +3,17 @@ package teststeps;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import regression_suite.Operations;
-import regression_suite.SanitySuite;
 import regression_suite.TestStepActions;
-import testdata.TestData;
 
 public class San_SinglePayment 
 {
 	static WebDriverWait longWait = Operations.longWait;
-	
+
 	TestStepActions tsa = new TestStepActions();
 	
-	static String cashierDepartment = "";
+	static String cashierDepartment = "CASH";
+	static String backUpcashierDepartment = "CASH1";
+
 	static String accountNumber = "240004430000";
 	static String paymentType = "S";
 	static String paymentMethod = "C";
@@ -33,11 +33,6 @@ public class San_SinglePayment
 	
 	public boolean testStep_2()
 	{
-		if(SanitySuite.autURL == TestData.URL_13BT)
-			cashierDepartment = "CASH1";
-		else if (SanitySuite.autURL == TestData.URL_14AT)
-			cashierDepartment = "CASH";
-		
 		xpath = "//input[contains(@value,'hange')]";
 		passed = tsa.waitUntil(xpath);
 		passed = tsa.clickOn(xpath);
@@ -57,14 +52,35 @@ public class San_SinglePayment
 	public boolean testStep_3()
 	{
 		Operations.waitFor(1000);
-
+		
 		xpath = "//*[text()[contains(.,'Payments')]]";
 		passed = tsa.clickOn(xpath);
 		
-		xpath = "//*[text()[contains(.,'Amount')]]";
+		xpath = "//*[text()[contains(.,'Single Payment')]]/./following::span[contains(@class,'iceOutTxt')]";
 		passed = tsa.waitUntil(xpath);
-
+		
+		xpath = "//*[text()[contains(.,'Cashdrawer already open in another office.')]]"; 
+		if(tsa.elementExist(xpath))
+		{
+			tsa.closeOKpopup();
+			
+			xpath = "//div[contains(@style,'transparent')]";
+			tsa.waitUntilElementnotExist(xpath, 500);
+			
+			if(!(cashierDepartment == backUpcashierDepartment))
+			{
+				cashierDepartment = backUpcashierDepartment;
+			
+				testStep_1();
+				testStep_2();
+				testStep_3();
+				
+				passed = false;
+			}
+		}
+		
 		xpath = "//input[@id='singlePayment:accountNumber']";
+		passed = tsa.waitUntil(xpath);
 		passed= tsa.sendDatatoField(xpath, accountNumber);
 		
 		xpath = "//input[contains(@value,'Search')]";
