@@ -70,11 +70,13 @@ public class San_SinglePayment
 		xpath = "//input[contains(@value,'Search')]";
 		passed = tsa.clickOn(xpath);
 		
+		return passed;
+	}
+	
+	public boolean testStep_4()
+	{
 		xpath = "//input[contains(@value,'Accept')]";
 		passed = tsa.waitUntil(xpath);
-		
-//		xpath = "//input[@id='singlePayment:tenderAmount']";
-//		passed = tsa.waitUntil(xpath);
 
 		xpath = "//select[@id='singlePayment:paymentType']";
 		passed = tsa.selectBy(xpath, paymentType);
@@ -94,7 +96,7 @@ public class San_SinglePayment
 		return passed;
 	}
 	
-	public boolean testStep_4()
+	public boolean testStep_5()
 	{
 		xpath = "//*[text()[contains(.,'tanding')]]";
 		passed = tsa.waitUntil(xpath);
@@ -105,7 +107,7 @@ public class San_SinglePayment
 		return passed;
 	}
 	
-	public boolean testStep_5()
+	public boolean testStep_6()
 	{
 		xpath = "//*[text()[contains(.,'uccessfully')]]";
 		passed = tsa.waitUntilshort(xpath);

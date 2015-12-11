@@ -37,6 +37,11 @@ public class Exec_San_SinglePayment
 			Operations.takeScreenshot();
 			if(!passed)
 				break;
+			
+			passed = ts.testStep_5();
+			Operations.takeScreenshot();
+			if(!passed)
+				break;
 		}
 		
 		return passed;
