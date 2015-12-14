@@ -1,7 +1,5 @@
 package teststeps;
 
-import java.awt.event.KeyEvent;
-
 import regression_suite.Operations;
 import regression_suite.SanitySuite;
 import regression_suite.TestStepActions;
@@ -56,17 +54,14 @@ public class San_FaultManagement
 		xpath = "//select[contains(@id,'symptom')]";
 		passed = tsa.waitUntil(xpath);
 		passed = tsa.selectBy(xpath, 1);
-		//appForm.selectByValue("31");
 		
 		Operations.waitFor(500);
 		xpath = "//select[contains(@id,'diagnosis')]"; 
 		passed = tsa.selectBy(xpath, 1);
-		//appForm1.selectByValue("2");
 		
 		Operations.waitFor(750);
 		xpath = "//select[contains(@id,'departments')]";
 		passed = tsa.selectBy(xpath, 1);
-		//appForm2.selectByValue("FLT-R");
 		
 		Operations.waitFor(750);
 		xpath = "//input[@value='Accept']";
@@ -144,8 +139,8 @@ public class San_FaultManagement
 	{
 		xpath = "//*[text()[contains(.,'" + FaultNote +"')]]";
 		passed = tsa.waitUntil(xpath);
-		
-		tsa.keyPress(KeyEvent.VK_PAGE_UP);
+
+		tsa.scrollUp();
 		
 		return passed;
 	}
@@ -176,16 +171,14 @@ public class San_FaultManagement
 		xpath = "//input[@value='Assign']";
 		passed = tsa.clickOn(xpath);
 		
-		tsa.keyPress(KeyEvent.VK_PAGE_UP);
-		
 		return passed;
 	}
 	
 	public boolean testStep_13()
-	{
-		tsa.keyPress(KeyEvent.VK_PAGE_UP);
-		tsa.keyPress(KeyEvent.VK_PAGE_UP);
-		
+	{	
+		tsa.scrollUp();
+		Operations.waitFor(1000);
+		tsa.scrollUp();
 		Operations.waitFor(1000);
 		
 		xpath = "//*[text()[contains(.,'Sign Off')]]";
@@ -235,7 +228,7 @@ public class San_FaultManagement
 		passed = tsa.waitUntilshort(xpath);
 		String FaultStatus = tsa.getDatafromPage(xpath);
 		
-		if (FaultStatus == "Cleared")
+		if (FaultStatus.equals("Cleared"))
 		{
 			MainWindow.writetoUIconsole("Passed");
 			passed = true;
@@ -245,7 +238,7 @@ public class San_FaultManagement
 			MainWindow.writetoUIconsole("Failed");
 			passed = false;
 		}
-		tsa.keyPress(KeyEvent.VK_PAGE_UP);
+		tsa.scrollUp();
 		return passed;
 	}
 }

@@ -5,6 +5,7 @@ import java.awt.Robot;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.ElementNotVisibleException;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.TimeoutException;
@@ -62,6 +63,7 @@ public class TestStepActions
 			}
 			catch(WebDriverException we)
 			{
+				we.printStackTrace();
 				MainWindow.writetoUIconsole("\tWebDriverException Occured- While clicking on '"+xpath+"' . Retrying");
 			}
 		}
@@ -354,6 +356,12 @@ public class TestStepActions
 		{ 
 			e.printStackTrace();
 		} 
+	}
+	
+	public void scrollUp()
+	{
+		JavascriptExecutor jse = (JavascriptExecutor)Operations.driver;
+		jse.executeScript("window.scrollBy(0,-750)", "");
 	}
 
 }
