@@ -91,8 +91,11 @@ public class San_SinglePayment
 	
 	public boolean testStep_4()
 	{
-		xpath = "//input[contains(@value,'Accept')]";
-		passed = tsa.waitUntil(xpath);
+		xpath = "//input[contains(@id,'tenderAmount') and contains(@disabled,'true')]";
+		tsa.waitUntilElementnotExist(xpath, 1000);
+		
+//		xpath = "//input[contains(@value,'Accept')]";
+//		passed = tsa.waitUntil(xpath);
 
 		xpath = "//select[@id='singlePayment:paymentType']";
 		passed = tsa.selectBy(xpath, paymentType);
@@ -108,6 +111,8 @@ public class San_SinglePayment
 		
 		xpath = "//input[contains(@value,'Accept')]";
 		passed = tsa.clickOn(xpath);
+		
+		Operations.waitFor(1000);
 		
 		return passed;
 	}
