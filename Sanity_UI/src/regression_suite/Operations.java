@@ -27,7 +27,7 @@ public class Operations
 	
 	public static WebDriver initDriver()
 	{
-		System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
+		System.setProperty("webdriver.chrome.driver", "Resources\\chromedriver.exe");
 
 		DesiredCapabilities capabilities = DesiredCapabilities.chrome();
 		capabilities.setCapability("chrome.switches", Arrays.asList("--ignore-certificate-errors"));
