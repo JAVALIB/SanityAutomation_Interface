@@ -131,6 +131,8 @@ public class San_ASN
 
 		Check.closeError();
 		
+		tsa.closeOKpopup();
+		
 		return passed;
 	}
 	
