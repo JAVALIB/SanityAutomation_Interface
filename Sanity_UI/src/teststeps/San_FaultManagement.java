@@ -184,6 +184,10 @@ public class San_FaultManagement
 	public boolean testStep_13()
 	{
 		tsa.keyPress(KeyEvent.VK_PAGE_UP);
+		tsa.keyPress(KeyEvent.VK_PAGE_UP);
+		
+		Operations.waitFor(1000);
+		
 		xpath = "//*[text()[contains(.,'Sign Off')]]";
 		passed = tsa.waitUntil(xpath);
 		passed = tsa.clickOn(xpath);
@@ -193,7 +197,6 @@ public class San_FaultManagement
 		
 		xpath = "//select[contains(@id,'signoffCleardByID')]";
 		passed = tsa.selectBy(xpath, 2);
-		//appForm3.selectByValue("2222");
 		Operations.waitFor(1500);
 		
 		xpath = "//select[contains(@id,'signoffselectClearCode1ID')]";
@@ -210,12 +213,10 @@ public class San_FaultManagement
 		
 		xpath = "//select[contains(@id,'signoffselectClearCode2ID')]";
 		passed = tsa.selectBy(xpath, 1);
-		//appForm5.selectByValue("3");
 		Operations.waitFor(1500);
 		
 		xpath = "//select[contains(@id,'signoffselectClearCode3ID')]";
 		passed = tsa.selectBy(xpath, 1);
-		//appForm6.selectByValue("1");
 		Operations.waitFor(1500);
 		
 		xpath = "//select[contains(@id,'signoffclearActionID')]";
