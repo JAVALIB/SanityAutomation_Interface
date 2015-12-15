@@ -38,7 +38,7 @@ public class Exec_San_SinglePayment
 			if(!passed)
 				break;
 			
-			passed = ts.testStep_5();
+			passed = ts.testStep_6();
 			Operations.takeScreenshot();
 			if(!passed)
 				break;
