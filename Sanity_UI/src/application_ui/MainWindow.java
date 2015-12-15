@@ -33,6 +33,8 @@ import regression_suite.SanitySuite;
 
 public class MainWindow extends JFrame 
 {
+	public static String version = "0.4.9";
+	
 	private static Thread automation;
 	
 	private static final long serialVersionUID = 1L;
@@ -109,7 +111,7 @@ public class MainWindow extends JFrame
 			e1.printStackTrace();
 		}
 		
-		setTitle("Sanity Automation");
+		setTitle("Sanity Automation " + version);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 750, 600);
 		
