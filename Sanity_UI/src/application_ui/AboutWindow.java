@@ -61,7 +61,7 @@ public class AboutWindow extends JFrame {
 		JLabel lblSanityAutomationSuite = new JLabel("Sanity Automation Suite");
 		contentPane.add(lblSanityAutomationSuite, "cell 3 0,alignx center");
 		
-		JLabel lblVersionwip = new JLabel("Version 0.4.7 (WIP alpha)");
+		JLabel lblVersionwip = new JLabel("Version 0.4.8 (WIP alpha)");
 		contentPane.add(lblVersionwip, "cell 3 1,alignx center");
 		
 		JLabel lblCodedBy = new JLabel("Coded By : Nikhil Das");
