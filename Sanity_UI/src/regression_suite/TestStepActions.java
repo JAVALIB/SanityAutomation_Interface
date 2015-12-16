@@ -361,7 +361,7 @@ public class TestStepActions
 	public void scrollUp()
 	{
 		JavascriptExecutor jse = (JavascriptExecutor)Operations.driver;
-		jse.executeScript("window.scrollBy(0,-1000)", "");
+		jse.executeScript("window.scrollBy(0,-2000)", "");
 	}
 
 }

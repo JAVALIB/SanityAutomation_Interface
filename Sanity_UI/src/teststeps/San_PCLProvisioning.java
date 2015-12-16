@@ -101,7 +101,6 @@ public class San_PCLProvisioning
 
 		}
 		
-		//change status to true id passed (no exception)
 		return passed;
 	}
 	public boolean testStep_4()
@@ -205,7 +204,6 @@ public class San_PCLProvisioning
 		
 		passed = tsa.clickOn(xpath);
 		
-		//change status to true id passed (no exception)
 		return passed;
 	}
 	public boolean testStep_5()
