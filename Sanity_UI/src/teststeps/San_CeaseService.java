@@ -22,6 +22,8 @@ public class San_CeaseService
 	
 	public boolean testStep_1()
 	{
+		tsa.scrollUp();
+		
 		xpath = "//*[text()[contains(.,'Customer Care')]]";
 		passed = tsa.waitUntil(xpath);
 		passed = tsa.clickOn(xpath);
