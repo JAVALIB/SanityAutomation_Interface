@@ -1,34 +1,40 @@
-package testdata;
+import java.net.URL;
+import java.util.List;
+import com.google.gdata.client.spreadsheet.FeedURLFactory;
+import com.google.gdata.client.spreadsheet.ListQuery;
+import com.google.gdata.client.spreadsheet.SpreadsheetService;
+import com.google.gdata.data.spreadsheet.CustomElementCollection;
+import com.google.gdata.data.spreadsheet.ListEntry;
+import com.google.gdata.data.spreadsheet.ListFeed;
+import com.google.gdata.data.spreadsheet.WorksheetEntry;
+import com.google.gdata.data.spreadsheet.WorksheetFeed;
 
-import com.google.gdata.client.spreadsheet.*;
-import com.google.gdata.data.spreadsheet.*;
-import com.google.gdata.util.*;
+public class NoAuth {
+    public static void main(String[] args) throws Exception{
+        String applicationName = "AppName";
+        String key = args[0];
+        String query = args[1];
 
-import java.io.IOException;
-import java.net.*;
-import java.util.*;
+        SpreadsheetService service = new SpreadsheetService(applicationName);
 
-public class googleSheetHandler {
-  public static void main(String[] args)
-      throws AuthenticationException, MalformedURLException, IOException, ServiceException {
+        URL url = FeedURLFactory.getDefault().getWorksheetFeedUrl(key, "public", "basic");
 
-    SpreadsheetService service =
-        new SpreadsheetService("MySpreadsheetIntegration-v1");
+        WorksheetFeed feed = service.getFeed(url, WorksheetFeed.class);
+        List<WorksheetEntry> worksheetList = feed.getEntries();
+        WorksheetEntry worksheetEntry = worksheetList.get(0);
 
-    // TODO: Authorize the service object for a specific user (see other sections)
+        ListQuery listQuery = new ListQuery(worksheetEntry.getListFeedUrl());
+        listQuery.setSpreadsheetQuery( query );
 
-    // Define the URL to request.  This should never change.
-    URL SPREADSHEET_FEED_URL = new URL(
-        "https://spreadsheets.google.com/feeds/spreadsheets/private/full");
-
-    // Make a request to the API and get all spreadsheets.
-    SpreadsheetFeed feed = service.getFeed(SPREADSHEET_FEED_URL, SpreadsheetFeed.class);
-    List<SpreadsheetEntry> spreadsheets = feed.getEntries();
-
-    // Iterate through all of the spreadsheets returned
-    for (SpreadsheetEntry spreadsheet : spreadsheets) {
-      // Print the title of this spreadsheet to the screen
-      System.out.println(spreadsheet.getTitle().getPlainText());
+        ListFeed listFeed = service.query( listQuery, ListFeed.class );
+        List<ListEntry> list = listFeed.getEntries();
+        for( ListEntry listEntry : list )
+        {
+            System.out.println( "content=[" + listEntry.getPlainTextContent() + "]");
+            CustomElementCollection elements = listEntry.getCustomElements();
+            System.out.println(
+                    " name=" + elements.getValue("name") + 
+                    " age="  + elements.getValue("age") );
+        }
     }
-  }
 }
