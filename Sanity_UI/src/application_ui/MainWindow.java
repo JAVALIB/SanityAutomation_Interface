@@ -33,7 +33,7 @@ import regression_suite.SanitySuite;
 
 public class MainWindow extends JFrame 
 {
-	public static String version = "0.4.12";
+	public static String version = "0.4.13";
 	
 	private static Thread automation;
 	
@@ -267,6 +267,8 @@ public class MainWindow extends JFrame
 					chckbxSelectAll.setSelected(false);
 					MainWindow.btnExecute.setEnabled(true);
 					MainWindow.autSelection.setEnabled(true);
+					
+					MainWindow.consoleArea.setText("");
 				}
 			}
 		});
