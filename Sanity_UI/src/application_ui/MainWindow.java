@@ -33,7 +33,7 @@ import regression_suite.SanitySuite;
 
 public class MainWindow extends JFrame 
 {
-	public static String version = "0.4.11";
+	public static String version = "0.4.12";
 	
 	private static Thread automation;
 	
@@ -243,11 +243,14 @@ public class MainWindow extends JFrame
 					{
 						writetoUIconsole("Not able to close browser (Already closed or Close it manually)");
 					}
-					Operations.driver.quit();
+					finally
+					{
+						Operations.driver.quit();
 					
-					MainWindow.btnClearClose.setText("Clear");
-					MainWindow.btnExecute.setEnabled(true);
-					MainWindow.autSelection.setEnabled(true);
+						MainWindow.btnClearClose.setText("Clear");
+						MainWindow.btnExecute.setEnabled(true);
+						MainWindow.autSelection.setEnabled(true);
+					}
 				}
 				else if(btnClearClose.getText()=="Clear")
 				{
