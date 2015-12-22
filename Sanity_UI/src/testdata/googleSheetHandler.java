@@ -1,5 +1,8 @@
+package testdata;
+
 import java.net.URL;
 import java.util.List;
+
 import com.google.gdata.client.spreadsheet.FeedURLFactory;
 import com.google.gdata.client.spreadsheet.ListQuery;
 import com.google.gdata.client.spreadsheet.SpreadsheetService;
@@ -9,7 +12,7 @@ import com.google.gdata.data.spreadsheet.ListFeed;
 import com.google.gdata.data.spreadsheet.WorksheetEntry;
 import com.google.gdata.data.spreadsheet.WorksheetFeed;
 
-public class NoAuth {
+public class googleSheetHandler {
     public static void main(String[] args) throws Exception{
         String applicationName = "AppName";
         String key = args[0];
@@ -30,7 +33,7 @@ public class NoAuth {
         List<ListEntry> list = listFeed.getEntries();
         for( ListEntry listEntry : list )
         {
-            System.out.println( "content=[" + listEntry.getPlainTextContent() + "]");
+            System.out.println( "content=[" + listEntry.getContent() + "]");
             CustomElementCollection elements = listEntry.getCustomElements();
             System.out.println(
                     " name=" + elements.getValue("name") + 
