@@ -128,6 +128,8 @@ public class San_SinglePayment
 		xpath = "//*[text()[contains(.,'uccessfully')]]";
 		passed = tsa.waitUntilshort(xpath);
 		
+		tsa.scrollUp();
+		
 		return passed;
 	}
 }
