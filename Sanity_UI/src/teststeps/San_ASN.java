@@ -188,6 +188,8 @@ public class San_ASN
 		passed = tsa.waitUntil(xpath);
 		passed = tsa.clickOn(xpath);
 		
+		Operations.waitFor(1000);
+		
 		return passed;
 	}
 	
