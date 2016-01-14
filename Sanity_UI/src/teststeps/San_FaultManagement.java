@@ -21,6 +21,8 @@ public class San_FaultManagement
 	
 	public boolean testStep_1()
 	{
+		tsa.scrollUp();
+
 		xpath = "//*[text()[contains(.,'Faults')]]";
 		passed = tsa.waitUntil(xpath);
 		passed = tsa.clickOn(xpath);
@@ -30,6 +32,8 @@ public class San_FaultManagement
 	
 	public boolean testStep_2()
 	{
+		tsa.scrollUp();
+
 		xpath = "//*[text()[contains(.,'Raise Fault')]]";
 		passed = tsa.waitUntil(xpath);
 		passed = tsa.clickOn(xpath);
@@ -39,6 +43,8 @@ public class San_FaultManagement
 	
 	public boolean testStep_3()
 	{
+		tsa.scrollUp();
+
 		xpath = "//input[contains(@id,'serviceNumber')]";
 		passed = tsa.waitUntil(xpath);
 		passed = tsa.sendDatatoField(xpath, TestData.ServiceNumber);
@@ -51,6 +57,8 @@ public class San_FaultManagement
 	
 	public boolean testStep_4()
 	{
+		tsa.scrollUp();
+
 		xpath = "//select[contains(@id,'symptom')]";
 		passed = tsa.waitUntil(xpath);
 		passed = tsa.selectBy(xpath, 1);
@@ -72,6 +80,8 @@ public class San_FaultManagement
 	
 	public boolean testStep_5()
 	{
+		tsa.scrollUp();
+
 		xpath = "//*[text()[contains(.,'Fault Number')]]";
 		passed = tsa.waitUntil(xpath);
 		
@@ -88,6 +98,8 @@ public class San_FaultManagement
 	
 	public boolean testStep_6()
 	{
+		tsa.scrollUp();
+
 		xpath = "//input[@maxlength = 7]";
 		passed = tsa.waitUntil(xpath);
 		
@@ -101,6 +113,8 @@ public class San_FaultManagement
 	
 	public boolean testStep_7()
 	{
+		tsa.scrollUp();
+
 		Check.closeError();
 		
 		xpath = "//*[text()[contains(.,'Maintain Fault Notes')]]";
@@ -116,6 +130,8 @@ public class San_FaultManagement
 	
 	public boolean testStep_8()
 	{
+		tsa.scrollUp();
+
 		xpath = "//input[@value='Add Notes']";
 		passed = tsa.waitUntil(xpath);
 		passed = tsa.clickOn(xpath);
@@ -125,6 +141,8 @@ public class San_FaultManagement
 	
 	public boolean testStep_9()
 	{
+		tsa.scrollUp();
+
 		xpath = "//textarea[@id='manageFault:manageNotes']";
 		passed = tsa.waitUntil(xpath);
 		passed = tsa.sendDatatoField(xpath, FaultNote);
@@ -137,16 +155,18 @@ public class San_FaultManagement
 	
 	public boolean testStep_10()
 	{
+		tsa.scrollUp();
+
 		xpath = "//*[text()[contains(.,'" + FaultNote +"')]]";
 		passed = tsa.waitUntil(xpath);
 
-		tsa.scrollUp();
-		
 		return passed;
 	}
 	
 	public boolean testStep_11()
 	{
+		tsa.scrollUp();
+
 		xpath = "//*[text()[contains(.,'Assign Fault')]]";
 		passed = tsa.waitUntil(xpath);
 		passed = tsa.clickOn(xpath);
@@ -156,6 +176,8 @@ public class San_FaultManagement
 	
 	public boolean testStep_12()
 	{
+		tsa.scrollUp();
+
 		xpath = "//input[@id='manageFault:startingWithEmp']";
 		passed = tsa.waitUntil(xpath);
 		passed = tsa.sendDatatoField(xpath, "99999");
@@ -224,6 +246,8 @@ public class San_FaultManagement
 	
 	public boolean testStep_14()
 	{
+		tsa.scrollUp();
+
 		xpath = "//*[text()[contains(.,'Cleared')] and @id='manageFault:faultStatusId']";
 		passed = tsa.waitUntilshort(xpath);
 		String FaultStatus = tsa.getDatafromPage(xpath);
@@ -238,7 +262,6 @@ public class San_FaultManagement
 			MainWindow.writetoUIconsole("Failed");
 			passed = false;
 		}
-		tsa.scrollUp();
 		return passed;
 	}
 }

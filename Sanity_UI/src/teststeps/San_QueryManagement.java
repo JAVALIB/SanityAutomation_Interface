@@ -1,7 +1,5 @@
 package teststeps;
 
-import java.awt.event.KeyEvent;
-
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import regression_suite.Operations;
@@ -79,6 +77,8 @@ public class San_QueryManagement
 	
 	public boolean testStep_4()
 	{
+		tsa.scrollUp();
+
 		xpath = "//*[text()[contains(.,'Query Number:')]]";
 		passed = tsa.waitUntil(xpath);
 
@@ -99,8 +99,6 @@ public class San_QueryManagement
 		xpath = "(//a[contains(@class,'iceCmdLnk') and contains(@id,'customerCareQueriesForm')])[3]";
 		passed = tsa.waitUntil(xpath);
 		
-		Operations.keyPress(KeyEvent.VK_PAGE_UP);
-
 		passed = tsa.clickOn(xpath);
 
 		//Add exception handling
@@ -123,9 +121,10 @@ public class San_QueryManagement
 	
 	public boolean testStep_6()
 	{
+		tsa.scrollUp();
+
 		passed = tsa.waitUntil(xpath);
 		
-		Operations.keyPress(KeyEvent.VK_PAGE_UP);
 		Operations.waitFor(1000);
 		
 		xpath = "(//a[contains(@class,'iceCmdLnk') and contains(@id,'customerCareQueriesForm')])[4]";
