@@ -254,6 +254,8 @@ public class San_PCLProvisioning
 	
 	public boolean testStep_7()
 	{
+		tsa.closeOKpopup();
+
 		xpath = "//*[text()[contains(.,'Available Pricing Plans')]]";
 		passed = tsa.waitUntil(xpath);		
 		
@@ -265,6 +267,8 @@ public class San_PCLProvisioning
 	
 	public boolean testStep_8()
 	{
+		tsa.closeOKpopup();
+
 		xpath = "//*[text()[contains(.,'Service Product')]]";
 		passed = tsa.waitUntil(xpath);		
 		
@@ -409,6 +413,8 @@ public class San_PCLProvisioning
 	
 	public boolean testStep_13()
 	{
+		tsa.closeOKpopup();
+
 		xpath = "//*[text()[contains(.,'Service Order Lines')]]";
 		tsa.waitUntil(xpath);
 		

@@ -175,4 +175,5 @@ public class Operations
 			label.setForeground(Color.BLACK);
 		}
 	}
+
 }

@@ -40,6 +40,7 @@ public class TestStepActions
 			Operations.waitFor(200);
 			try
 			{
+				System.out.println("\tClicking on :" + xpath);
 				Operations.driver.findElement(By.xpath(xpath)).click();
 				break;
 			}
@@ -77,6 +78,7 @@ public class TestStepActions
 		{
 			try
 			{
+				System.out.println("\tSending data '" + value + "' to field : " + xpath);
 				clearInputField(xpath);
 				Operations.driver.findElement(By.xpath(xpath)).sendKeys(value);
 				break;
@@ -110,6 +112,7 @@ public class TestStepActions
 	{
 		String dataFromPage = "";
 		
+		System.out.println("\tGetting value from : " + xpath);
 		dataFromPage = Operations.driver.findElement(By.xpath(xpath)).getText();
 		
 		return dataFromPage;
@@ -155,6 +158,7 @@ public class TestStepActions
 		{
 			try
 			{
+				System.out.println("\tWaiting for : " + xpath);
 				Operations.longWait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(xpath)));
 				passed = true;
 				break;
@@ -175,6 +179,7 @@ public class TestStepActions
 		{
 			try
 			{
+				System.out.println("\tWaiting for : " + xpath);
 				Operations.tinyWait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(xpath)));
 				break;
 			}
@@ -194,6 +199,7 @@ public class TestStepActions
 		{
 			try
 			{
+				System.out.println("\tWaiting for : " + xpath);
 				Operations.shortWait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(xpath)));
 				break;
 			}
@@ -265,6 +271,7 @@ public class TestStepActions
 		{
 			try
 			{
+				System.out.println("\tSelecting value'" + value +"' from : " + xpath);
 				Select appForm = new Select(Operations.driver.findElement(By.xpath(xpath)));
 				appForm.selectByValue(value);
 				break;
@@ -301,6 +308,7 @@ public class TestStepActions
 		{
 			try
 			{
+				System.out.println("\tSelecting index'" + index +"' from : " + xpath);
 				Select appForm = new Select(Operations.driver.findElement(By.xpath(xpath)));
 				appForm.selectByIndex(index);
 				break;
