@@ -18,6 +18,8 @@ public class San_GenerateVerifyReport
 	
 	public boolean testStep_1()
 	{
+		tsa.scrollUp();
+		
 		xpath = "//a[contains(@href,'maintainEmployeeParams.xhtml')]";
 		passed = tsa.waitUntil(xpath);
 		passed = tsa.clickOn(xpath);
