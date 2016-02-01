@@ -33,7 +33,7 @@ import regression_suite.SanitySuite;
 
 public class MainWindow extends JFrame 
 {
-	public static String version = "0.4.20";
+	public static String version = "0.4.21";
 	
 	private static Thread automation;
 	
@@ -216,7 +216,7 @@ public class MainWindow extends JFrame
 				SanitySuite suite = new SanitySuite();
 		        automation = new Thread(suite);
 		        
-		        automation.run();
+		        automation.start();
 		        
 				MainWindow.btnClearClose.setText("Stop");
 				MainWindow.btnExecute.setEnabled(false);
